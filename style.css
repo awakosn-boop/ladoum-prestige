@@ -1091,3 +1091,77 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 25px;
 }
+
+/* ==========================================================================
+   CARROUSEL MOBILE & OPTIMISATION UX PRODUITS
+   ========================================================================== */
+
+/* Carrousel défilable horizontalement sur écran mobile */
+@media (max-width: 768px) {
+    .products-header {
+        margin-bottom: 25px;
+    }
+
+    .category-block {
+        margin-top: 35px;
+    }
+
+    /* Transformation de la grille en carrousel tactile */
+    .grid-products {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        gap: 15px !important;
+        padding-bottom: 15px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Masquer la barre de défilement tout en gardant le scroll */
+    .grid-products::-webkit-scrollbar {
+        display: none;
+    }
+    .grid-products {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* Dimensionnement des cartes dans le carrousel */
+    .grid-products .product-card {
+        flex: 0 0 82% !important; /* Laisse deviner la carte suivante */
+        scroll-snap-align: center;
+        min-width: 260px;
+    }
+
+    .product-img-wrapper {
+        height: 160px !important;
+    }
+
+    .product-card-body {
+        padding: 15px !important;
+    }
+
+    .product-card-body h3 {
+        font-size: 1.15rem !important;
+    }
+
+    .product-card-body p {
+        font-size: 0.8rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Indication visuelle de défilement */
+    .category-header::after {
+        content: "Glisser ➔";
+        font-size: 0.75rem;
+        color: var(--accent-gold);
+        font-weight: 500;
+        margin-left: auto;
+    }
+}
+
+/* Bouton pour aller sur la page dédiée Viandes */
+.cta-all-products {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+}
