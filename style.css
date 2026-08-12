@@ -747,3 +747,101 @@ footer {
 .btn-whatsapp-order:hover {
     background-color: #1eb854;
 }
+
+/* Section À Propos */
+.about-section {
+    padding: 80px 10%;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--header-border);
+    border-bottom: 1px solid var(--header-border);
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.about-text {
+    flex: 1.2;
+}
+
+.about-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.about-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.about-stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--card-border);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-badge-card {
+    flex: 0.8;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(139, 0, 0, 0.05) 100%);
+    border: 1px solid var(--accent-gold);
+    padding: 40px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.gold-icon {
+    font-size: 2.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+}
+
+.badge-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.badge-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Responsive Tablette/Mobile */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .about-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
