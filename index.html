@@ -21,6 +21,7 @@
             <a href="#accueil">Accueil</a>
             <a href="secret-excellence.html">Notre Secret</a>
             <a href="#decoupes">Nos Viandes</a>
+            <a href="#service-livraison">Livraison</a>
             <a href="https://wa.me/221776518802" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             
             <div class="theme-switcher">
@@ -57,54 +58,67 @@
     <!-- BLOC PREUVE & CONFIANCE : Pourquoi choisir le Ladoum ? -->
     <section class="why-ladoum-section">
         <div class="why-header">
-            <p class="label-prestige">Savoir-Faire & Traçabilité</p>
+            <p class="label-prestige">Pédagogie de la Valeur</p>
             <h2>Pourquoi Choisir le Ladoum ?</h2>
-            <p class="why-intro">Issu de notre bergerie familiale, chaque sujet est sélectionné avec soin pour vous proposer une viande de qualité supérieure, préparée et découpée selon vos besoins.</p>
+            <p class="why-intro">Issu de notre bergerie familiale, chaque sujet est sélectionné avec soin pour vous proposer une viande de qualité supérieure, préparée et découpée sur-mesure.</p>
         </div>
 
         <div class="why-grid">
             <div class="why-card">
+                <div class="why-icon"><i class="fas fa-dna"></i></div>
+                <h3>Une Race d'Exception</h3>
+                <p>Le Ladoum est l'emblème de l'élevage ovin d'élite au Sénégal, reconnu pour sa chair tendre et sa saveur délicate.</p>
+            </div>
+
+            <div class="why-card">
                 <div class="why-icon"><i class="fas fa-home"></i></div>
                 <h3>Élevage Familial</h3>
-                <p>Du troupeau à votre table : un suivi sanitaire et nutritionnel irréprochable au sein de notre propre bergerie.</p>
+                <p>Aucun intermédiaire : un suivi sanitaire et nutritionnel irréprochable au sein de notre propre bergerie.</p>
             </div>
 
             <div class="why-card">
                 <div class="why-icon"><i class="fas fa-award"></i></div>
                 <h3>Sélection Rigoureuse</h3>
-                <p>Des sujets choisis avec attention pour offrir un persillé délicat, un goût doux et une tendreté incomparable.</p>
+                <p>Chaque sujet est choisi individuellement à maturité idéale pour garantir un persillé et une tendreté irréprochables.</p>
             </div>
 
             <div class="why-card">
                 <div class="why-icon"><i class="fas fa-cut"></i></div>
-                <h3>Découpe Sur Mesure</h3>
-                <p>Chaque pièce est préparée artisanalement selon votre commande, au kilo ou à l'unité.</p>
+                <h3>Découpe Sur-Mesure</h3>
+                <p>Chaque pièce est préparée artisanalement selon votre commande et emballée avec soin.</p>
             </div>
         </div>
     </section>
 
-    <!-- SECTION PRODUITS RESTRUCTURÉE (10 Articles / 3 Catégories) -->
+    <!-- SECTION PRODUITS RESTRUCTURÉE (4 Catégories Complètes) -->
     <section id="decoupes" class="products">
+        
         <div class="products-header">
-            <p>L'Art du Ladoum</p>
+            <p class="label-prestige">L'Art du Ladoum</p>
             <h2>Nos Viandes & Sélections</h2>
             <p class="products-subintro">Du morceau brut aux découpes les plus raffinées, choisissez le Ladoum selon vos envies.</p>
         </div>
         
         <!-- CATÉGORIE 1: L'ESSENTIEL -->
         <div class="category-block">
-            <h3 class="category-title"><i class="fas fa-star gold-icon-sm"></i> L'Essentiel</h3>
+            <div class="category-header">
+                <h3><i class="fas fa-star gold-icon-sm"></i> L'Essentiel</h3>
+                <span class="category-line"></span>
+            </div>
+
             <div class="grid-products">
                 <div class="product-card" data-id="1">
                     <div class="product-img-wrapper">
                         <img src="./img/1.png" alt="Viande de Ladoum au Kilogramme" class="product-img">
                     </div>
                     <div class="product-card-body">
-                        <div class="badge">L'Essentiel</div>
+                        <div class="badge">Incontournable</div>
                         <h3>Viande de Ladoum</h3>
-                        <p>La viande de Ladoum, simplement. Découpée selon vos besoins et proposée au kilogramme.</p>
-                        <span class="price">7 000 FCFA <small>/ kg</small></span>
-                        <button onclick="addToCart('Viande de Ladoum au Kg', 7000, 'kg')" class="btn-card">Ajouter au panier</button>
+                        <p>Sélectionnée avec soin, découpée selon vos besoins et proposée au kilogramme.</p>
+                        <div class="product-footer-row">
+                            <span class="price">7 000 FCFA <small>/ kg</small></span>
+                            <button onclick="addToCart('Viande de Ladoum au Kg', 7000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,7 +126,11 @@
 
         <!-- CATÉGORIE 2: LES DÉCOUPES SIGNATURE -->
         <div class="category-block">
-            <h3 class="category-title"><i class="fas fa-crown gold-icon-sm"></i> Les Découpes Signature</h3>
+            <div class="category-header">
+                <h3><i class="fas fa-crown gold-icon-sm"></i> Les Découpes Signature</h3>
+                <span class="category-line"></span>
+            </div>
+
             <div class="grid-products">
                 <div class="product-card" data-id="2">
                     <div class="product-img-wrapper">
@@ -122,8 +140,10 @@
                         <div class="badge">Pièce Signature</div>
                         <h3>Le Gigot de Ladoum</h3>
                         <p>La pièce incontournable pour les grandes tables. Une découpe généreuse pour vos réceptions.</p>
-                        <span class="price">8 500 FCFA <small>/ kg</small></span>
-                        <button onclick="addToCart('Le Gigot de Ladoum', 8500, 'kg')" class="btn-card">Ajouter au panier</button>
+                        <div class="product-footer-row">
+                            <span class="price">8 500 FCFA <small>/ kg</small></span>
+                            <button onclick="addToCart('Le Gigot de Ladoum', 8500, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
 
@@ -135,8 +155,10 @@
                         <div class="badge">Sélection Prestige</div>
                         <h3>Le Filet de Ladoum</h3>
                         <p>La découpe la plus délicate. Une pièce raffinée destinée aux amateurs de viande extra-tendre.</p>
-                        <span class="price">Sur devis <small>/ kg</small></span>
-                        <button onclick="addToCart('Le Filet de Ladoum', 0, 'kg')" class="btn-card">Ajouter au panier</button>
+                        <div class="product-footer-row">
+                            <span class="price">Sur devis <small>/ kg</small></span>
+                            <button onclick="addToCart('Le Filet de Ladoum', 0, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
 
@@ -148,8 +170,10 @@
                         <div class="badge">Sélection Gourmande</div>
                         <h3>Les Côtelettes de Ladoum</h3>
                         <p>Découpées avec précision pour révéler toute la richesse et le fondant de la viande.</p>
-                        <span class="price">9 000 FCFA <small>/ kg</small></span>
-                        <button onclick="addToCart('Les Côtelettes de Ladoum', 9000, 'kg')" class="btn-card">Ajouter au panier</button>
+                        <div class="product-footer-row">
+                            <span class="price">9 000 FCFA <small>/ kg</small></span>
+                            <button onclick="addToCart('Les Côtelettes de Ladoum', 9000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
 
@@ -161,16 +185,22 @@
                         <div class="badge">Cuisson Fondante</div>
                         <h3>L'Épaule de Ladoum</h3>
                         <p>Une pièce généreuse adaptée aux cuissons lentes et aux repas de tradition.</p>
-                        <span class="price">8 000 FCFA <small>/ kg</small></span>
-                        <button onclick="addToCart('L\'Épaule de Ladoum', 8000, 'kg')" class="btn-card">Ajouter au panier</button>
+                        <div class="product-footer-row">
+                            <span class="price">8 000 FCFA <small>/ kg</small></span>
+                            <button onclick="addToCart('L\'Épaule de Ladoum', 8000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- CATÉGORIE 3: LES INCONTOURNABLES -->
+        <!-- CATÉGORIE 3: LES PRÉPARATIONS -->
         <div class="category-block">
-            <h3 class="category-title"><i class="fas fa-utensils gold-icon-sm"></i> Les Incontournables</h3>
+            <div class="category-header">
+                <h3><i class="fas fa-drumstick-bite gold-icon-sm"></i> Les Préparations</h3>
+                <span class="category-line"></span>
+            </div>
+
             <div class="grid-products">
                 <div class="product-card" data-id="6">
                     <div class="product-img-wrapper">
@@ -179,12 +209,24 @@
                     <div class="product-card-body">
                         <div class="badge">Préparation Maison</div>
                         <h3>Viande Hachée de Ladoum</h3>
-                        <p>Du Ladoum pure viande haché à la commande pour vos recettes d'exception.</p>
-                        <span class="price">Sur devis <small>/ kg</small></span>
-                        <button onclick="addToCart('Viande Hachée de Ladoum', 0, 'kg')" class="btn-card">Ajouter au panier</button>
+                        <p>Du Ladoum pure viande haché à la commande pour vos recettes du quotidien et d'exception.</p>
+                        <div class="product-footer-row">
+                            <span class="price">Sur devis <small>/ kg</small></span>
+                            <button onclick="addToCart('Viande Hachée de Ladoum', 0, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <!-- CATÉGORIE 4: TRADITION & BOX -->
+        <div class="category-block">
+            <div class="category-header">
+                <h3><i class="fas fa-utensils gold-icon-sm"></i> Tradition & Box</h3>
+                <span class="category-line"></span>
+            </div>
+
+            <div class="grid-products">
                 <div class="product-card" data-id="7">
                     <div class="product-img-wrapper">
                         <img src="./img/1.png" alt="Tête de Mouton" class="product-img">
@@ -193,8 +235,10 @@
                         <div class="badge">Tradition</div>
                         <h3>Tête de Mouton</h3>
                         <p>Une pièce traditionnelle nettoyée et préparée pour les amateurs de recettes authentiques.</p>
-                        <span class="price">Sur devis <small>/ pièce</small></span>
-                        <button onclick="addToCart('Tête de Mouton', 0, 'unit')" class="btn-card">Ajouter au panier</button>
+                        <div class="product-footer-row">
+                            <span class="price">Sur devis <small>/ pièce</small></span>
+                            <button onclick="addToCart('Tête de Mouton', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
 
@@ -206,8 +250,10 @@
                         <div class="badge">Tradition</div>
                         <h3>Tête d'Agneau</h3>
                         <p>Une sélection fine destinée aux amateurs de mets traditionnels tendres.</p>
-                        <span class="price">Sur devis <small>/ pièce</small></span>
-                        <button onclick="addToCart('Tête d\'Agneau', 0, 'unit')" class="btn-card">Ajouter au panier</button>
+                        <div class="product-footer-row">
+                            <span class="price">Sur devis <small>/ pièce</small></span>
+                            <button onclick="addToCart('Tête d\'Agneau', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
 
@@ -219,8 +265,10 @@
                         <div class="badge">Sélection Tradition</div>
                         <h3>Box Laxass</h3>
                         <p>Une sélection préparée pour retrouver les saveurs authentiques autour du mouton.</p>
-                        <span class="price">Sur devis <small>/ box</small></span>
-                        <button onclick="addToCart('Box Laxass', 0, 'unit')" class="btn-card">Ajouter au panier</button>
+                        <div class="product-footer-row">
+                            <span class="price">Sur devis <small>/ box</small></span>
+                            <button onclick="addToCart('Box Laxass', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
 
@@ -232,10 +280,47 @@
                         <div class="badge">Incontournable</div>
                         <h3>Box Pied de Mouton</h3>
                         <p>Assortiment Tank Xaar soigneusement nettoyé et découpé, prêt à cuisiner.</p>
-                        <span class="price">Sur devis <small>/ box</small></span>
-                        <button onclick="addToCart('Box Pied de Mouton (Tank Xaar)', 0, 'unit')" class="btn-card">Ajouter au panier</button>
+                        <div class="product-footer-row">
+                            <span class="price">Sur devis <small>/ box</small></span>
+                            <button onclick="addToCart('Box Pied de Mouton (Tank Xaar)', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION SERVICE & LIVRAISON (Parcours Conciergerie) -->
+    <section id="service-livraison" class="service-section">
+        <div class="service-header">
+            <p class="label-prestige">De notre bergerie à votre table</p>
+            <h2>Votre Commande en Toute Simplicité</h2>
+            <p class="service-intro">Un parcours fluide et personnalisé pour recevoir une viande d'exception directement chez vous à Dakar.</p>
+        </div>
+
+        <div class="service-steps-grid">
+            <div class="service-step-card">
+                <span class="step-num">01</span>
+                <h3>Sélection sur-mesure</h3>
+                <p>Choisissez vos pièces ou coffrets parmi nos sélections au kilogramme ou à l'unité.</p>
+            </div>
+
+            <div class="service-step-card">
+                <span class="step-num">02</span>
+                <h3>Ajustement du Poids</h3>
+                <p>Définissez précisément vos quantités dans votre panier virtuel interactif.</p>
+            </div>
+
+            <div class="service-step-card">
+                <span class="step-num">03</span>
+                <h3>Validation WhatsApp</h3>
+                <p>Transmettez votre sélection en un clic. Un conseiller confirme votre commande immédiatement.</p>
+            </div>
+
+            <div class="service-step-card">
+                <span class="step-num">04</span>
+                <h3>Préparation & Livraison</h3>
+                <p>Découpe fraîche le jour même et livraison directe à Dakar et sa banlieue.</p>
             </div>
         </div>
     </section>
