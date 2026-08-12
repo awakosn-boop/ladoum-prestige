@@ -89,6 +89,7 @@ body {
     color: var(--text-color);
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Typographie */
@@ -117,7 +118,7 @@ header {
 }
 
 .logo-img {
-    height: 200px; /* Ajusté pour tenir élégamment dans le header de 100px */
+    height: 200px;
     width: auto;
     object-fit: contain;
     transition: opacity 0.3s ease;
@@ -185,7 +186,7 @@ nav a:hover {
     justify-content: space-between;
     padding: 0 4%;
     width: 100%;
-    height: calc(100vh - 100px); /* Aligniés sur les 100px du header */
+    height: calc(100vh - 100px);
     max-width: 1600px;
     margin: 0 auto;
     gap: 20px;
@@ -261,7 +262,6 @@ nav a:hover {
     border: 1px solid var(--accent-gold);
 }
 
-/* Survol de "Découvrir la carte" : Rouge + Écriture Blanche */
 .btn-gold:hover {
     background-color: var(--hover-btn-bg);
     color: var(--hover-btn-text);
@@ -326,7 +326,6 @@ nav a:hover {
     color: var(--text-color);
 }
 
-/* Texte "Une Sélection Unique" passé en rouge bordeaux sur fond blanc */
 .products-header p {
     color: var(--section-sublabel);
     font-size: 0.85rem;
@@ -412,7 +411,6 @@ nav a:hover {
     color: var(--hover-card-border);
 }
 
-/* Survol du bouton "Commander" : Rouge + Écriture Blanche */
 .product-card:hover .btn-card {
     background-color: var(--hover-btn-bg);
     color: var(--hover-btn-text);
@@ -429,25 +427,101 @@ footer {
     font-size: 0.8rem;
 }
 
-/* Responsive Mobile */
+/* ==========================================
+   OPTIMISATION RESPONSIVE MOBILE
+   ========================================== */
 @media (max-width: 900px) {
+    header {
+        height: auto;
+        min-height: 80px;
+        padding: 10px 4%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo-img {
+        height: 120px; /* Taille adaptée pour écran mobile */
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-left: 8px;
+        margin-right: 8px;
+        font-size: 0.75rem;
+    }
+
+    .theme-switcher {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        margin-top: 5px;
+    }
+
     .hero {
         flex-direction: column-reverse;
         height: auto;
-        padding: 40px 5%;
+        min-height: auto;
+        padding: 30px 5%;
+        gap: 25px;
     }
-    
+
     .hero-content {
         text-align: center;
+        width: 100%;
     }
-    
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .tagline {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 0.85rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .cta-group {
         justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
     }
-    
+
+    .btn-gold, .btn-outline {
+        width: 100%;
+        padding: 12px 15px;
+        text-align: center;
+    }
+
+    .hero-image-wrapper {
+        width: 100%;
+        justify-content: center;
+    }
+
     .hero-ladoum-img {
         max-width: 100%;
-        max-height: 50vh;
+        max-height: 45vh;
+    }
+
+    .products {
+        padding: 40px 5%;
+    }
+
+    .products-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .grid-products {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }
