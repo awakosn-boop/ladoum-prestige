@@ -1275,7 +1275,7 @@ footer {
     }
 
     .logo-img {
-        height: 55px !important; /* Taille nette pour mobile sans étouffer l'écran */
+        height: 200px !important; /* Taille nette pour mobile sans étouffer l'écran */
         width: auto !important;
     }
 
