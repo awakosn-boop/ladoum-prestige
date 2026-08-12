@@ -1165,3 +1165,26 @@ footer {
     margin-top: 40px;
     padding: 20px 0;
 }
+
+/* ==========================================================================
+   FOND PERSONNALISÉ POUR LA SECTION VIANDES
+   ========================================================================== */
+
+/* Couleur de fond sur-mesure pour la section viandes */
+#decoupes.products {
+    background-color: var(--section-viandes-bg, #f4efe9); /* Nuance beige/crème raffinée en thème clair */
+    border-top: 1px solid var(--header-border);
+    border-bottom: 1px solid var(--header-border);
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Adaptation pour le Thème Sombre */
+[data-theme="dark"] #decoupes.products {
+    --section-viandes-bg: #181818; /* Gris très sombre distinct */
+}
+
+/* Adaptation pour le Thème Bordeaux Prestige */
+[data-theme="red"] #decoupes.products {
+    --section-viandes-bg: #3a0000; /* Bordeaux profond contrasté */
+}
