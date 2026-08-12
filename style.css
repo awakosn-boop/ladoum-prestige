@@ -1188,3 +1188,52 @@ footer {
 [data-theme="red"] #decoupes.products {
     --section-viandes-bg: #3a0000; /* Bordeaux profond contrasté */
 }
+
+/* ==========================================================================
+   CENTRALISATION DES ÉLÉMENTS DE LA SECTION VIANDES SUR MOBILE
+   ========================================================================== */
+
+   @media (max-width: 768px) {
+    /* Centrage de l'en-tête de la section viandes */
+    #decoupes.products .products-header {
+        text-align: center;
+    }
+
+    /* Centrage des titres de catégories et masquage de la ligne latérale pour garder la symétrie */
+    #decoupes.products .category-header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    #decoupes.products .category-header h3 {
+        margin: 0 auto;
+    }
+
+    #decoupes.products .category-line {
+        display: none; /* Enlève la ligne pour que le titre reste bien au centre */
+    }
+
+    #decoupes.products .category-header::after {
+        display: none; /* Enlève la mention latérale si le centrage est actif */
+    }
+
+    /* Centrage des cartes dans le carrousel/grille mobile */
+    #decoupes.products .grid-products {
+        justify-content: center;
+    }
+
+    #decoupes.products .product-card {
+        margin: 0 auto; /* Centre la carte produit */
+        text-align: center;
+    }
+
+    #decoupes.products .badge {
+        align-self: center; /* Centre le badge au-dessus du titre */
+    }
+
+    #decoupes.products .product-footer-row {
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
