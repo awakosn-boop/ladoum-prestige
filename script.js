@@ -1,55 +1,49 @@
-function setTheme(themeName) {
-    // 1. Applique l'attribut data-theme au document HTML
-    document.documentElement.setAttribute('data-theme', themeName);
-    
-    // 2. Permutation dynamique du logo selon le thème
-    const logoImg = document.getElementById('site-logo');
-    if (logoImg) {
-        if (themeName === 'light') {
-            logoImg.src = './img/logo_fond_blanc.png';
-        } else if (themeName === 'dark') {
-            logoImg.src = './img/logo_fond_noir.png';
-        } else if (themeName === 'red') {
-            logoImg.src = './img/logo_fond_rouge.png';
-        }
-    }
-
-    // 3. Mise à jour visuelle des pastilles de sélection de thème
-    document.querySelectorAll('.theme-dot').forEach(dot => {
-        dot.classList.remove('active');
-    });
-
-    if (themeName === 'light') {
-        document.querySelector('.dot-light')?.classList.add('active');
-    } else if (themeName === 'dark') {
-        document.querySelector('.dot-dark')?.classList.add('active');
-    } else if (themeName === 'red') {
-        document.querySelector('.dot-red')?.classList.add('active');
-    }
-}
-
 let cart = [];
 const PHONE_NUMBER = "221776518802";
+
+function setTheme(themeName) {
+    document.documentElement.setAttribute('data-theme', themeName);
+    document.querySelectorAll('.theme-dot').forEach(dot => dot.classList.remove('active'));
+    if(themeName === 'light') document.querySelector('.dot-light')?.classList.add('active');
+    if(themeName === 'dark') document.querySelector('.dot-dark')?.classList.add('active');
+    if(themeName === 'red') document.querySelector('.dot-red')?.classList.add('active');
+}
 
 function toggleCart() {
     document.getElementById('cart-drawer').classList.toggle('open');
     document.getElementById('cart-overlay').classList.toggle('active');
 }
 
-function addToCart(name, pricePerKg) {
+/**
+ * Ajouter au panier
+ * @param {string} name 
+ * @param {number} pricePerUnit (0 si sur devis)
+ * @param {string} unitType 'kg' ou 'unit'
+ */
+function addToCart(name, pricePerUnit, unitType = 'kg') {
     const existing = cart.find(item => item.name === name);
+    const initialQty = unitType === 'kg' ? 1 : 1;
+
     if (existing) {
-        existing.kg += 1;
+        existing.qty += (unitType === 'kg' ? 0.5 : 1);
     } else {
-        cart.push({ name: name, pricePerKg: pricePerKg, kg: 1 });
+        cart.push({
+            name: name,
+            price: pricePerUnit,
+            qty: initialQty,
+            type: unitType
+        });
     }
     updateCartUI();
     toggleCart();
 }
 
-function updateKg(index, delta) {
-    cart[index].kg += delta;
-    if (cart[index].kg <= 0) {
+function updateQty(index, delta) {
+    const item = cart[index];
+    const minStep = item.type === 'kg' ? 0.5 : 1;
+    
+    item.qty += delta;
+    if (item.qty <= 0) {
         cart.splice(index, 1);
     }
     updateCartUI();
@@ -63,23 +57,30 @@ function removeItem(index) {
 function updateCartUI() {
     const container = document.getElementById('cart-items');
     const badge = document.getElementById('cart-badge');
-    const totalPrice = document.getElementById('cart-total-price');
+    const totalPriceContainer = document.getElementById('cart-total-price');
 
-    const totalCount = cart.reduce((acc, item) => acc + item.kg, 0);
-    badge.textContent = totalCount;
+    // Compte du nombre total de lignes ou d'unités
+    badge.textContent = cart.length;
 
     if (cart.length === 0) {
         container.innerHTML = `<p class="empty-cart-msg">Votre panier est actuellement vide.</p>`;
-        totalPrice.textContent = "0 FCFA";
+        totalPriceContainer.textContent = "0 FCFA";
         return;
     }
 
     let html = '';
     let grandTotal = 0;
+    let hasQuoteItems = false;
 
     cart.forEach((item, index) => {
-        const subtotal = item.pricePerKg * item.kg;
-        grandTotal += subtotal;
+        const isPriced = item.price > 0;
+        const subtotal = isPriced ? item.price * item.qty : 0;
+        if (isPriced) grandTotal += subtotal;
+        else hasQuoteItems = true;
+
+        const qtyLabel = item.type === 'kg' ? `${item.qty} kg` : `${item.qty} pc`;
+        const step = item.type === 'kg' ? 0.5 : 1;
+        const priceDisplay = isPriced ? `${subtotal.toLocaleString()} FCFA` : `Sur devis`;
 
         html += `
             <div class="cart-item">
@@ -89,36 +90,56 @@ function updateCartUI() {
                 </div>
                 <div class="cart-item-controls">
                     <div class="kilo-picker">
-                        <button class="kilo-btn" onclick="updateKg(${index}, -0.5)">-</button>
-                        <span class="kilo-value">${item.kg} kg</span>
-                        <button class="kilo-btn" onclick="updateKg(${index}, 0.5)">+</button>
+                        <button class="kilo-btn" onclick="updateQty(${index}, -${step})">-</button>
+                        <span class="kilo-value">${qtyLabel}</span>
+                        <button class="kilo-btn" onclick="updateQty(${index}, ${step})">+</button>
                     </div>
-                    <span class="cart-item-subtotal">${subtotal.toLocaleString()} FCFA</span>
+                    <span class="cart-item-subtotal">${priceDisplay}</span>
                 </div>
             </div>
         `;
     });
 
     container.innerHTML = html;
-    totalPrice.textContent = `${grandTotal.toLocaleString()} FCFA`;
+    
+    let totalText = `${grandTotal.toLocaleString()} FCFA`;
+    if (hasQuoteItems && grandTotal > 0) totalText += ` (+ sur devis)`;
+    else if (hasQuoteItems && grandTotal === 0) totalText = "Sur devis";
+    
+    totalPriceContainer.textContent = totalText;
 }
 
 function checkoutWhatsApp() {
     if (cart.length === 0) return;
 
-    let message = "*COMMANDE MAISON LADOUM PRESTIGE*\n";
+    let message = "*COMMANDE - BOUCHERIE LADOUM PRESTIGE*\n";
     message += "-----------------------------------\n\n";
 
     let grandTotal = 0;
+    let hasQuoteItems = false;
+
     cart.forEach(item => {
-        const subtotal = item.pricePerKg * item.kg;
-        grandTotal += subtotal;
-        message += `• *${item.name}* : ${item.kg} kg (${subtotal.toLocaleString()} FCFA)\n`;
+        const isPriced = item.price > 0;
+        const subtotal = isPriced ? item.price * item.qty : 0;
+        const qtyLabel = item.type === 'kg' ? `${item.qty} kg` : `${item.qty} pièce(s)`;
+
+        if (isPriced) {
+            grandTotal += subtotal;
+            message += `• *${item.name}* : ${qtyLabel} (${subtotal.toLocaleString()} FCFA)\n`;
+        } else {
+            hasQuoteItems = true;
+            message += `• *${item.name}* : ${qtyLabel} (Prix à confirmer)\n`;
+        }
     });
 
     message += "\n-----------------------------------\n";
-    message += `*TOTAL ESTIMÉ : ${grandTotal.toLocaleString()} FCFA*\n\n`;
-    message += "Bonjour, je souhaite valider la commande de ces découpes.";
+    if (grandTotal > 0) {
+        message += `*TOTAL ESTIMÉ : ${grandTotal.toLocaleString()} FCFA*\n`;
+    }
+    if (hasQuoteItems) {
+        message += `_Note : Inclut des pièces sur devis à confirmer._\n`;
+    }
+    message += "\nBonjour, je souhaite valider la commande de ces éléments.";
 
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 }
