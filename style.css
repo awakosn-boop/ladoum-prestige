@@ -1237,3 +1237,82 @@ footer {
         gap: 10px;
     }
 }
+
+/* ==========================================================================
+   MENU HAMBURGER MOBILE (LOGO À SA PLACE)
+   ========================================================================== */
+
+   .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-menu-btn {
+    display: none; /* Caché sur ordinateur */
+    background: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 900px) {
+    header {
+        height: 75px !important;
+        padding: 10px 5% !important;
+        flex-direction: row !important; /* Maintient le logo à gauche et actions à droite */
+        justify-content: space-between !important;
+        position: sticky;
+        top: 0;
+        z-index: 150;
+    }
+
+    .logo-img {
+        height: 55px !important; /* Taille nette pour mobile sans étouffer l'écran */
+        width: auto !important;
+    }
+
+    .mobile-menu-btn {
+        display: flex !important; /* Visible uniquement sur écran mobile/tablette */
+    }
+
+    /* Le menu nav devient un panneau dépliant élégant */
+    nav#main-nav {
+        position: fixed;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-color);
+        border-bottom: 2px solid var(--accent-gold);
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 25px 0 !important;
+        gap: 18px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        display: none !important; /* Caché par défaut */
+        z-index: 140;
+    }
+
+    nav#main-nav.active {
+        display: flex !important; /* Affiché au clic sur le burger */
+    }
+
+    nav#main-nav a {
+        margin: 0 !important;
+        font-size: 0.95rem !important;
+    }
+
+    .theme-switcher {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        border-left: none !important;
+        margin-top: 10px;
+    }
+}

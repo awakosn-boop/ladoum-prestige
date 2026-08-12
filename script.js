@@ -143,3 +143,31 @@ function checkoutWhatsApp() {
 
     window.open(`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
 }
+
+// Gestion du Menu Hamburger Mobile
+function toggleMobileMenu() {
+    const nav = document.getElementById('main-nav');
+    const icon = document.getElementById('burger-icon');
+    
+    nav.classList.toggle('active');
+    
+    if (nav.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times'); // Transforme le burger en X
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+}
+
+function closeMobileMenu() {
+    const nav = document.getElementById('main-nav');
+    const icon = document.getElementById('burger-icon');
+    if (nav) {
+        nav.classList.remove('active');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    }
+}

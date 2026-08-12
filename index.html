@@ -10,32 +10,41 @@
 <body>
 
     <!-- Header Fixe -->
-    <header>
-        <div class="logo">
-            <a href="#accueil">
-                <img src="./img/logo_fond_blanc.png" alt="Boucherie Ladoum Prestige" id="site-logo" class="logo-img">
-            </a>
-        </div>
-        
-        <nav>
-            <a href="#accueil">Accueil</a>
-            <a href="secret-excellence.html">Notre Secret</a>
-            <a href="#decoupes">Nos Viandes</a>
-            <a href="#service-livraison">Livraison</a>
-            <a href="https://wa.me/221776518802" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            
-            <div class="theme-switcher">
-                <span class="theme-dot dot-light active" onclick="setTheme('light')" title="Thème Clair"></span>
-                <span class="theme-dot dot-dark" onclick="setTheme('dark')" title="Thème Sombre"></span>
-                <span class="theme-dot dot-red" onclick="setTheme('red')" title="Thème Bordeaux Prestige"></span>
-            </div>
+   <!-- Header Fixe avec Menu Hamburger Mobile -->
+   <header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="./img/logo_fond_blanc.png" alt="Boucherie Ladoum Prestige" id="site-logo" class="logo-img">
+        </a>
+    </div>
+    
+    <!-- Action de droite : Panier + Toggle Burger -->
+    <div class="header-actions">
+        <button class="cart-trigger" onclick="toggleCart()" title="Voir le panier">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge" id="cart-badge">0</span>
+        </button>
 
-            <button class="cart-trigger" onclick="toggleCart()" title="Voir le panier">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="cart-badge" id="cart-badge">0</span>
-            </button>
-        </nav>
-    </header>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+            <i class="fas fa-bars" id="burger-icon"></i>
+        </button>
+    </div>
+
+    <!-- Navigation principale (Coulissante sur Mobile) -->
+    <nav id="main-nav">
+        <a href="index.html#accueil" onclick="closeMobileMenu()">Accueil</a>
+        <a href="secret-excellence.html" onclick="closeMobileMenu()">Notre Secret</a>
+        <a href="viandes.html" onclick="closeMobileMenu()">Nos Viandes</a>
+        <a href="index.html#service-livraison" onclick="closeMobileMenu()">Livraison</a>
+        <a href="https://wa.me/221776518802" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        
+        <div class="theme-switcher">
+            <span class="theme-dot dot-light active" onclick="setTheme('light')" title="Thème Clair"></span>
+            <span class="theme-dot dot-dark" onclick="setTheme('dark')" title="Thème Sombre"></span>
+            <span class="theme-dot dot-red" onclick="setTheme('red')" title="Thème Bordeaux Prestige"></span>
+        </div>
+    </nav>
+</header>
 
     <!-- Hero Banner -->
     <section id="accueil" class="hero">
