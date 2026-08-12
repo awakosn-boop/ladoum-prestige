@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maison Ladoum Prestige | Boucherie d'Exception</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -13,10 +14,11 @@
         <div class="logo">
             <img src="./img/logo_fond_blanc.png" alt="Maison Ladoum Prestige" id="site-logo" class="logo-img">
         </div>
+        
         <nav>
             <a href="#accueil">Accueil</a>
             <a href="#decoupes">Nos Découpes</a>
-            <a href="https://wa.me/221770000000" class="nav-wa" target="_blank">WhatsApp</a>
+            <a href="https://wa.me/221776518802" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             
             <!-- Sélecteur de Thème -->
             <div class="theme-switcher">
@@ -24,10 +26,16 @@
                 <span class="theme-dot dot-dark" onclick="setTheme('dark')" title="Thème Sombre"></span>
                 <span class="theme-dot dot-red" onclick="setTheme('red')" title="Thème Bordeaux Prestige"></span>
             </div>
+
+            <!-- Bouton Panier Discret -->
+            <button class="cart-trigger" onclick="toggleCart()" title="Voir le panier">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-badge" id="cart-badge">0</span>
+            </button>
         </nav>
     </header>
 
-    <!-- Banner Hero Immense & Densifiée -->
+    <!-- Banner Hero -->
     <section id="accueil" class="hero">
         <div class="hero-content">
             <p class="label-prestige">100% Bergerie Familiale</p>
@@ -36,7 +44,7 @@
             <p class="description">Une viande d'exception, reconnue pour sa tendreté absolue et sa douceur naturelle. Une sélection rigoureuse issue du savoir-faire de notre élevage familial.</p>
             <div class="cta-group">
                 <a href="#decoupes" class="btn-gold">Découvrir la carte</a>
-                <a href="https://wa.me/221770000000" target="_blank" class="btn-outline">Commande rapide</a>
+                <a href="https://wa.me/221776518802" target="_blank" class="btn-outline">Commande rapide</a>
             </div>
         </div>
         
@@ -45,7 +53,7 @@
         </div>
     </section>
 
-    <!-- Catalogue Produits -->
+    <!-- Catalogue Produits Epuré -->
     <section id="decoupes" class="products">
         <div class="products-header">
             <p>Une Sélection Unique</p>
@@ -53,31 +61,54 @@
         </div>
         
         <div class="grid-products">
-            <div class="product-card">
+            <div class="product-card" data-id="1" data-name="Côtelettes d'Or" data-price="9000">
                 <div class="badge">Sélection Extra-Tendre</div>
                 <h3>Côtelettes d'Or</h3>
                 <p>Découpées avec précision, idéales pour révéler le fondant naturel du Ladoum à la cuisson.</p>
-                <span class="price">Sur devis / kg</span>
-                <a href="https://wa.me/221770000000?text=Bonjour,%20je%20souhaite%20commander%20les%20Côtelettes%20d'Or" class="btn-card">Commander</a>
+                <span class="price">9 000 FCFA / kg</span>
+                <button onclick="addToCart('Côtelettes d\'Or', 9000)" class="btn-card">Ajouter au panier</button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-id="2" data-name="Le Gigot Royal" data-price="8500">
                 <div class="badge">Pièce d'Exception</div>
                 <h3>Le Gigot Royal</h3>
                 <p>La pièce maîtresse par excellence. Une chair juteuse et noble pour vos réceptions.</p>
-                <span class="price">Sur devis / kg</span>
-                <a href="https://wa.me/221770000000?text=Bonjour,%20je%20souhaite%20commander%20le%20Gigot%20Royal" class="btn-card">Commander</a>
+                <span class="price">8 500 FCFA / kg</span>
+                <button onclick="addToCart('Le Gigot Royal', 8500)" class="btn-card">Ajouter au panier</button>
             </div>
 
-            <div class="product-card">
+            <div class="product-card" data-id="3" data-name="L'Épaule Confite" data-price="8000">
                 <div class="badge">Gourmet & Fondant</div>
                 <h3>L'Épaule Confite</h3>
                 <p>Préparée pour les cuissons lentes, offrant un moelleux incomparable et une douceur sans égale.</p>
-                <span class="price">Sur devis / kg</span>
-                <a href="https://wa.me/221770000000?text=Bonjour,%20je%20souhaite%20commander%20l'Épaule%20Confite" class="btn-card">Commander</a>
+                <span class="price">8 000 FCFA / kg</span>
+                <button onclick="addToCart('L\'Épaule Confite', 8000)" class="btn-card">Ajouter au panier</button>
             </div>
         </div>
     </section>
+
+    <!-- Tiroir du Panier (Drawer Luxe) -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fas fa-shopping-bag"></i> Votre Sélection</h3>
+            <button class="close-drawer" onclick="toggleCart()">&times;</button>
+        </div>
+
+        <div class="cart-drawer-body" id="cart-items">
+            <p class="empty-cart-msg">Votre panier est actuellement vide.</p>
+        </div>
+
+        <div class="cart-drawer-footer">
+            <div class="cart-summary">
+                <span>Total Estimé</span>
+                <strong id="cart-total-price">0 FCFA</strong>
+            </div>
+            <button class="btn-whatsapp-order" onclick="checkoutWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Commander via WhatsApp
+            </button>
+        </div>
+    </aside>
 
     <!-- Footer -->
     <footer>
