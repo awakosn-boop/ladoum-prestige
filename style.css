@@ -1,0 +1,453 @@
+/* Palette dynamique Ladoum Prestige */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #0c0c0c;
+    --text-muted: #666666;
+    --accent-gold: #b69262;
+    --accent-rouge: #800000;
+    
+    --card-bg: #ffffff;
+    --card-border: #f0f0f0;
+    --card-shadow: rgba(128, 0, 0, 0.15);
+    
+    /* Styles HOVER sur Fond Blanc : ROUGE & BLANC */
+    --hover-card-bg: #800000;
+    --hover-card-text: #ffffff;
+    --hover-card-muted: #f0e6e6;
+    --hover-card-border: #b69262;
+    --hover-btn-bg: #800000;          /* Bouton Rouge au survol */
+    --hover-btn-text: #ffffff;        /* Écriture Blanche au survol */
+    --hover-btn-border: #800000;      /* Bordure Rouge */
+    
+    --section-sublabel: #800000;      /* "Une Sélection Unique" en Rouge */
+    
+    --header-border: rgba(182, 146, 98, 0.25);
+    --footer-bg: #fafafa;
+}
+
+/* THÈME SOMBRE (Fond Noir) */
+[data-theme="dark"] {
+    --bg-color: #0c0c0c;
+    --text-color: #ffffff;
+    --text-muted: #aaaaaa;
+    
+    --card-bg: #141414;
+    --card-border: rgba(182, 146, 98, 0.3);
+    --card-shadow: rgba(182, 146, 98, 0.3);
+    
+    /* Styles HOVER sur Fond Noir */
+    --hover-card-bg: #b69262;
+    --hover-card-text: #800000;
+    --hover-card-muted: #4a0000;
+    --hover-card-border: #ffffff;
+    --hover-btn-bg: #800000;
+    --hover-btn-text: #ffffff;
+    --hover-btn-border: #800000;
+    
+    --section-sublabel: #b69262;
+    
+    --header-border: rgba(182, 146, 98, 0.3);
+    --footer-bg: #050505;
+}
+
+/* THÈME BORDEAUX PRESTIGE (Fond Rouge) */
+[data-theme="red"] {
+    --bg-color: #4a0000;
+    --text-color: #ffffff;
+    --text-muted: #e0d0d0;
+    
+    --card-bg: #5c0000;
+    --card-border: rgba(182, 146, 98, 0.5);
+    --card-shadow: rgba(0, 0, 0, 0.5);
+    
+    /* Styles HOVER sur Fond Bordeaux */
+    --hover-card-bg: #0c0c0c;
+    --hover-card-text: #b69262;
+    --hover-card-muted: #ffffff;
+    --hover-card-border: #b69262;
+    --hover-btn-bg: #b69262;
+    --hover-btn-text: #0c0c0c;
+    --hover-btn-border: #b69262;
+    
+    --section-sublabel: #b69262;
+    
+    --header-border: rgba(182, 146, 98, 0.5);
+    --footer-bg: #330000;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+/* Typographie */
+h1, h2, h3, .brand-title {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
+}
+
+/* Header Compact & Ajusté */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    height: 100px;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--header-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 200px; /* Ajusté pour tenir élégamment dans le header de 100px */
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+nav a:hover {
+    color: var(--accent-rouge);
+}
+
+.nav-wa {
+    color: var(--accent-gold) !important;
+    font-weight: 600 !important;
+}
+
+/* Sélecteur de Thème */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    padding-left: 15px;
+    border-left: 1px solid var(--header-border);
+}
+
+.theme-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.theme-dot:hover {
+    transform: scale(1.3);
+    box-shadow: 0 0 8px var(--accent-gold);
+}
+
+.theme-dot.active {
+    border-color: var(--accent-gold);
+}
+
+.dot-light { background-color: #ffffff; border: 1px solid #ccc; }
+.dot-dark { background-color: #0c0c0c; }
+.dot-red { background-color: #800000; }
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4%;
+    width: 100%;
+    height: calc(100vh - 100px); /* Aligniés sur les 100px du header */
+    max-width: 1600px;
+    margin: 0 auto;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 0.9;
+    text-align: left;
+    z-index: 2;
+}
+
+.hero .label-prestige {
+    color: var(--accent-gold);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.hero h1 {
+    color: var(--text-color);
+    font-size: 3.2rem;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    color: #800000 !important;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 300;
+    max-width: 620px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+/* CTA Group */
+.cta-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+.btn-gold, .btn-outline {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-gold {
+    background-color: var(--accent-gold);
+    color: #ffffff;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    border: 1px solid var(--accent-gold);
+}
+
+/* Survol de "Découvrir la carte" : Rouge + Écriture Blanche */
+.btn-gold:hover {
+    background-color: var(--hover-btn-bg);
+    color: var(--hover-btn-text);
+    border-color: var(--hover-btn-border);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 12px 28px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    border: 1px solid var(--accent-gold);
+}
+
+.btn-outline:hover {
+    background-color: var(--hover-btn-bg);
+    color: var(--hover-btn-text);
+    border-color: var(--hover-btn-border);
+    transform: translateY(-2px);
+}
+
+/* IMAGE DU LADOUM MAXIMISÉE */
+.hero-image-wrapper {
+    flex: 1.6;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.hero-ladoum-img {
+    width: 100%;
+    max-width: 1100px;
+    max-height: 200vh;
+    object-fit: contain;
+    border-radius: 4px;
+    transition: transform 0.4s ease;
+}
+
+.hero-image-wrapper:hover .hero-ladoum-img {
+    transform: scale(1.02);
+}
+
+/* Grille des Produits */
+.products {
+    padding: 80px 8%;
+}
+
+.products-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.products-header h2 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+/* Texte "Une Sélection Unique" passé en rouge bordeaux sur fond blanc */
+.products-header p {
+    color: var(--section-sublabel);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.grid-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 30px 25px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.badge {
+    color: var(--accent-gold);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.product-card h3 {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.price {
+    display: block;
+    color: var(--accent-gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.btn-card {
+    display: block;
+    text-align: center;
+    background-color: var(--accent-gold);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    border: 1px solid var(--accent-gold);
+}
+
+/* Effets Hover sur les cartes */
+.product-card:hover {
+    background-color: var(--hover-card-bg);
+    border-color: var(--hover-card-border);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px var(--card-shadow);
+}
+
+.product-card:hover h3,
+.product-card:hover p,
+.product-card:hover .badge {
+    color: var(--hover-card-text);
+}
+
+.product-card:hover .price {
+    color: var(--hover-card-border);
+}
+
+/* Survol du bouton "Commander" : Rouge + Écriture Blanche */
+.product-card:hover .btn-card {
+    background-color: var(--hover-btn-bg);
+    color: var(--hover-btn-text);
+    border-color: var(--hover-btn-border);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--header-border);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* Responsive Mobile */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column-reverse;
+        height: auto;
+        padding: 40px 5%;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
+    .cta-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .hero-ladoum-img {
+        max-width: 100%;
+        max-height: 50vh;
+    }
+}
