@@ -1316,3 +1316,53 @@ footer {
         margin-top: 10px;
     }
 }
+
+video/* ==========================================================================
+CORRECTION ALIGNEMENT PANIER ORDINATEUR VS MOBILE
+========================================================================== */
+
+/* Sur ordinateur : masquer les actions mobiles */
+.mobile-only {
+ display: none !important;
+}
+
+/* Sur mobile (900px et moins) */
+@media (max-width: 900px) {
+ /* Masquer le panier du nav sur mobile */
+ .desktop-cart {
+     display: none !important;
+ }
+
+ /* Afficher le bloc d'actions mobile (Panier + Burger) à droite */
+ .mobile-only {
+     display: flex !important;
+     align-items: center;
+     gap: 10px;
+ }
+}
+
+/* ==========================================================================
+   GESTION STRICTE DU PANIER UNIQUE (PC VS MOBILE)
+   ========================================================================== */
+
+/* Sur Ordinateur (> 900px) */
+@media (min-width: 901px) {
+    .mobile-only {
+        display: none !important; /* Cache le bloc mobile */
+    }
+    .desktop-cart {
+        display: flex !important; /* Affiche le panier dans la nav */
+    }
+}
+
+/* Sur Mobile (<= 900px) */
+@media (max-width: 900px) {
+    .desktop-cart {
+        display: none !important; /* Cache le panier de la nav */
+    }
+    .mobile-only {
+        display: flex !important; /* Affiche le bloc Panier + Burger à droite */
+        align-items: center;
+        gap: 10px;
+    }
+}

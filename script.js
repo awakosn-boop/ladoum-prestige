@@ -56,11 +56,12 @@ function removeItem(index) {
 
 function updateCartUI() {
     const container = document.getElementById('cart-items');
-    const badge = document.getElementById('cart-badge');
     const totalPriceContainer = document.getElementById('cart-total-price');
 
-    // Compte du nombre total de lignes ou d'unités
-    badge.textContent = cart.length;
+    // Mise à jour de tous les badges du panier (Mobile + Desktop)
+    document.querySelectorAll('.cart-badge').forEach(badge => {
+        badge.textContent = cart.length;
+    });
 
     if (cart.length === 0) {
         container.innerHTML = `<p class="empty-cart-msg">Votre panier est actuellement vide.</p>`;
@@ -149,14 +150,18 @@ function toggleMobileMenu() {
     const nav = document.getElementById('main-nav');
     const icon = document.getElementById('burger-icon');
     
-    nav.classList.toggle('active');
-    
-    if (nav.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times'); // Transforme le burger en X
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+    if (nav) {
+        nav.classList.toggle('active');
+        
+        if (icon) {
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times'); // Transforme le burger en X
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
     }
 }
 

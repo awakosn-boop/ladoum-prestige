@@ -11,6 +11,8 @@
 
     <!-- Header Fixe -->
    <!-- Header Fixe avec Menu Hamburger Mobile -->
+   <!-- Header Fixe -->
+   <!-- Header Fixe -->
    <header>
     <div class="logo">
         <a href="index.html">
@@ -18,19 +20,7 @@
         </a>
     </div>
     
-    <!-- Action de droite : Panier + Toggle Burger -->
-    <div class="header-actions">
-        <button class="cart-trigger" onclick="toggleCart()" title="Voir le panier">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-badge" id="cart-badge">0</span>
-        </button>
-
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
-            <i class="fas fa-bars" id="burger-icon"></i>
-        </button>
-    </div>
-
-    <!-- Navigation principale (Coulissante sur Mobile) -->
+    <!-- Navigation Principale -->
     <nav id="main-nav">
         <a href="index.html#accueil" onclick="closeMobileMenu()">Accueil</a>
         <a href="secret-excellence.html" onclick="closeMobileMenu()">Notre Secret</a>
@@ -43,7 +33,25 @@
             <span class="theme-dot dot-dark" onclick="setTheme('dark')" title="Thème Sombre"></span>
             <span class="theme-dot dot-red" onclick="setTheme('red')" title="Thème Bordeaux Prestige"></span>
         </div>
+
+        <!-- Panier Ordinateur -->
+        <button class="cart-trigger desktop-cart" onclick="toggleCart()" title="Voir le panier">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge">0</span>
+        </button>
     </nav>
+
+    <!-- Actions Mobile (Panier + Burger) -->
+    <div class="header-actions mobile-only">
+        <button class="cart-trigger" onclick="toggleCart()" title="Voir le panier">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge">0</span>
+        </button>
+
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+            <i class="fas fa-bars" id="burger-icon"></i>
+        </button>
+    </div>
 </header>
 
     <!-- Hero Banner -->
