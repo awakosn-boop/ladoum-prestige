@@ -7,90 +7,159 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .page-banner {
-            padding: 50px 5% 20px;
+        /* Alignment design avec la charte Prestige */
+        .page-header {
+            padding: 60px 8% 20px;
             text-align: center;
         }
 
         .category-nav-bar {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            padding: 15px 5%;
+            gap: 12px;
+            padding: 15px 8%;
             overflow-x: auto;
             position: sticky;
             top: 80px;
             background-color: var(--bg-color);
             z-index: 90;
-            border-bottom: 1px solid var(--header-border);
+            border-bottom: 1px solid var(--header-border, rgba(212, 175, 55, 0.2));
             -webkit-overflow-scrolling: touch;
         }
 
         .cat-chip {
             white-space: nowrap;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border: 1px solid var(--accent-gold);
-            border-radius: 20px;
-            font-size: 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 1px;
             color: var(--text-color);
             background: transparent;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .cat-chip:hover, .cat-chip.active {
             background-color: var(--accent-gold);
             color: #fff;
         }
+
+        .category-block {
+            margin-bottom: 60px;
+            scroll-margin-top: 150px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 0 8%;
+        }
+
+        .category-header h3 {
+            font-size: 1.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .gold-icon-sm {
+            color: var(--accent-gold);
+        }
+
+        .category-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+        }
+
+        .products-grid-container {
+            padding: 0 8%;
+        }
+
+        @media (max-width: 900px) {
+            .page-header {
+                padding: 40px 5% 20px;
+            }
+            .category-nav-bar,
+            .category-header,
+            .products-grid-container {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header Fixe -->
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="./img/logo_fond_blanc.png" alt="Boucherie Ladoum Prestige" id="site-logo" class="logo-img">
-            </a>
-        </div>
+    <!-- En-tête / Header -->
+  <!-- Header Fixe -->
+  <header>
+    <div class="logo">
+        <a href="index.html">
+            <img src="./img/logo_fond_blanc.png" alt="Boucherie Ladoum Prestige" id="site-logo" class="logo-img">
+        </a>
+    </div>
+    
+    <!-- Navigation Principale -->
+    <nav id="main-nav">
+        <a href="index.html#accueil" onclick="closeMobileMenu()">Accueil</a>
+        <a href="secret-excellence.html" onclick="closeMobileMenu()">Notre Secret</a>
+        <a href="viandes.html" class="active" onclick="closeMobileMenu()">Nos Viandes</a>
+        <a href="https://wa.me/221776518802" class="nav-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="secret-excellence.html">Notre Secret</a>
-            <a href="viandes.html" class="active">Nos Viandes</a>
-            <a href="https://wa.me/221776518802" class="nav-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            
-            <div class="theme-switcher">
-                <span class="theme-dot dot-light active" onclick="setTheme('light')" title="Thème Clair"></span>
-                <span class="theme-dot dot-dark" onclick="setTheme('dark')" title="Thème Sombre"></span>
-                <span class="theme-dot dot-red" onclick="setTheme('red')" title="Thème Bordeaux Prestige"></span>
-            </div>
+        <div class="theme-switcher">
+            <span class="theme-dot dot-light active" onclick="setTheme('light')" title="Thème Clair"></span>
+            <span class="theme-dot dot-dark" onclick="setTheme('dark')" title="Thème Sombre"></span>
+            <span class="theme-dot dot-red" onclick="setTheme('red')" title="Thème Bordeaux Prestige"></span>
+        </div>
 
-            <button class="cart-trigger" onclick="toggleCart()" title="Voir le panier">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="cart-badge" id="cart-badge">0</span>
-            </button>
-        </nav>
-    </header>
+        <!-- Panier Ordinateur -->
+        <button class="cart-trigger desktop-cart" onclick="toggleCart()" title="Voir le panier">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge">0</span>
+        </button>
+    </nav>
 
-    <!-- En-tête de la Page Viandes -->
-    <section class="page-banner">
+    <!-- Actions Mobile (Panier + Burger) -->
+    <div class="header-actions mobile-only">
+        <button class="cart-trigger" onclick="toggleCart()" title="Voir le panier">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge">0</span>
+        </button>
+
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" title="Menu">
+            <i class="fas fa-bars" id="burger-icon"></i>
+        </button>
+    </div>
+</header>
+
+    <!-- Page Header (Aligné sur Secret d'Excellence) -->
+    <section class="page-header">
         <p class="label-prestige">Haute Boucherie Ovine</p>
-        <h1 style="font-size: 2.5rem; margin-bottom: 10px;">La Carte Complète</h1>
-        <p class="products-subintro" style="max-width: 600px; margin: 0 auto;">Découvrez l'ensemble de nos morceaux bruts, découpes d'orfèvre, préparations et coffrets traditionnels.</p>
+        <h1 style="font-size: 3rem; margin-bottom: 15px;">La Carte Complète</h1>
+        <p class="description" style="max-width: 650px; margin: 0 auto; color: var(--text-muted); font-size: 0.98rem; line-height: 1.8;">
+            Découvrez l'ensemble de nos morceaux bruts, découpes d'orfèvre, la sélection tradition et nos box d'exception préparées sur mesure.
+        </p>
     </section>
 
-    <!-- Filtres Rapides par Catégorie -->
+    <!-- Navigation Filtres Rapides -->
     <div class="category-nav-bar">
-        <a href="#cat-essentiel" class="cat-chip">L'Essentiel</a>
+        <a href="#cat-essentiel" class="cat-chip active">L'Essentiel</a>
         <a href="#cat-signature" class="cat-chip">Découpes Signature</a>
-        <a href="#cat-prepa" class="cat-chip">Préparations</a>
-        <a href="#cat-tradition" class="cat-chip">Tradition & Box</a>
+        <a href="#cat-tradition" class="cat-chip">Sélection Tradition</a>
+        <a href="#cat-box" class="cat-chip">Les Box Ladoum</a>
     </div>
 
     <!-- CATALOGUE EXHAUSTIF -->
-    <section class="products" style="padding-top: 20px;">
+    <section class="products" style="padding-top: 40px; padding-bottom: 80px;">
         
         <!-- CATÉGORIE 1: L'ESSENTIEL -->
         <div class="category-block" id="cat-essentiel">
@@ -99,18 +168,50 @@
                 <span class="category-line"></span>
             </div>
 
-            <div class="grid-products">
-                <div class="product-card" data-id="1">
-                    <div class="product-img-wrapper">
-                        <img src="./img/1.png" alt="Viande de Ladoum au Kilogramme" class="product-img">
+            <div class="products-grid-container">
+                <div class="grid-products">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/1.png" alt="Le Ladoum Entier" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Légende & Prestige</div>
+                            <h3>Le Ladoum Entier</h3>
+                            <p>Mouton entier sélectionné dans notre bergerie, préparé et découpé au poids selon vos besoins.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ au poids</small></span>
+                                <button onclick="addToCart('Le Ladoum Entier', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-card-body">
-                        <div class="badge">Incontournable</div>
-                        <h3>Viande de Ladoum</h3>
-                        <p>Sélectionnée avec soin, découpée selon vos besoins et proposée au kilogramme.</p>
-                        <div class="product-footer-row">
-                            <span class="price">7 000 FCFA <small>/ kg</small></span>
-                            <button onclick="addToCart('Viande de Ladoum au Kg', 7000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/propos1.png" alt="Viande de Ladoum" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Incontournable</div>
+                            <h3>Viande de Ladoum</h3>
+                            <p>Sélectionnée avec soin, découpée selon vos besoins et proposée au kilogramme.</p>
+                            <div class="product-footer-row">
+                                <span class="price">7 000 FCFA <small>/ kg</small></span>
+                                <button onclick="addToCart('Viande de Ladoum', 7000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/1.png" alt="Haché de Ladoum" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Fraîcheur Minute</div>
+                            <h3>Haché de Ladoum</h3>
+                            <p>Une viande fraîchement préparée à la commande, idéale pour vos recettes du quotidien.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ kg</small></span>
+                                <button onclick="addToCart('Haché de Ladoum', 0, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,158 +225,257 @@
                 <span class="category-line"></span>
             </div>
 
-            <div class="grid-products">
-                <div class="product-card" data-id="2">
-                    <div class="product-img-wrapper">
-                        <img src="./img/propos1.png" alt="Le Gigot de Ladoum" class="product-img">
-                    </div>
-                    <div class="product-card-body">
-                        <div class="badge">Pièce Signature</div>
-                        <h3>Le Gigot de Ladoum</h3>
-                        <p>La pièce incontournable pour les grandes tables. Une découpe généreuse pour vos réceptions.</p>
-                        <div class="product-footer-row">
-                            <span class="price">8 500 FCFA <small>/ kg</small></span>
-                            <button onclick="addToCart('Le Gigot de Ladoum', 8500, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+            <div class="products-grid-container">
+                <div class="grid-products">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/propos1.png" alt="Côte d'Or" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Pièce d'Orfèvre</div>
+                            <h3>Côte d'Or (Côte Première)</h3>
+                            <p>La pièce noble du Ladoum, persillée et d'une tendreté d'exception.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ kg</small></span>
+                                <button onclick="addToCart('Côte d\'Or', 0, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="product-card" data-id="3">
-                    <div class="product-img-wrapper">
-                        <img src="./img/1.png" alt="Le Filet de Ladoum" class="product-img">
-                    </div>
-                    <div class="product-card-body">
-                        <div class="badge">Sélection Prestige</div>
-                        <h3>Le Filet de Ladoum</h3>
-                        <p>La découpe la plus délicate. Une pièce raffinée destinée aux amateurs de viande extra-tendre.</p>
-                        <div class="product-footer-row">
-                            <span class="price">Sur devis <small>/ kg</small></span>
-                            <button onclick="addToCart('Le Filet de Ladoum', 0, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/1.png" alt="Côtelettes de Ladoum" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Grillade d'Or</div>
+                            <h3>Côtelettes de Ladoum</h3>
+                            <p>Découpées avec précision pour vos grillades et barbecue.</p>
+                            <div class="product-footer-row">
+                                <span class="price">9 000 FCFA <small>/ kg</small></span>
+                                <button onclick="addToCart('Côtelettes de Ladoum', 9000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="product-card" data-id="4">
-                    <div class="product-img-wrapper">
-                        <img src="./img/propos1.png" alt="Les Côtelettes de Ladoum" class="product-img">
-                    </div>
-                    <div class="product-card-body">
-                        <div class="badge">Sélection Gourmande</div>
-                        <h3>Les Côtelettes de Ladoum</h3>
-                        <p>Découpées avec précision pour révéler toute la richesse et le fondant de la viande.</p>
-                        <div class="product-footer-row">
-                            <span class="price">9 000 FCFA <small>/ kg</small></span>
-                            <button onclick="addToCart('Les Côtelettes de Ladoum', 9000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/propos1.png" alt="Poitrine de Ladoum" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Gourmand</div>
+                            <h3>Poitrine de Ladoum</h3>
+                            <p>Très bonne pièce pour les préparations mijotées ou grillades selon la découpe.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ kg</small></span>
+                                <button onclick="addToCart('Poitrine de Ladoum', 0, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="product-card" data-id="5">
-                    <div class="product-img-wrapper">
-                        <img src="./img/1.png" alt="L'Épaule de Ladoum" class="product-img">
-                    </div>
-                    <div class="product-card-body">
-                        <div class="badge">Cuisson Fondante</div>
-                        <h3>L'Épaule de Ladoum</h3>
-                        <p>Une pièce généreuse adaptée aux cuissons lentes et aux repas de tradition.</p>
-                        <div class="product-footer-row">
-                            <span class="price">8 000 FCFA <small>/ kg</small></span>
-                            <button onclick="addToCart('L\'Épaule de Ladoum', 8000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/1.png" alt="Épaule de Ladoum" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Fondant Absolu</div>
+                            <h3>Épaule de Ladoum</h3>
+                            <p>Une pièce juteuse et généreuse, parfaite à rôtir ou confire doucement.</p>
+                            <div class="product-footer-row">
+                                <span class="price">8 000 FCFA <small>/ kg</small></span>
+                                <button onclick="addToCart('Épaule de Ladoum', 8000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- CATÉGORIE 3: LES PRÉPARATIONS -->
-        <div class="category-block" id="cat-prepa">
-            <div class="category-header">
-                <h3><i class="fas fa-drumstick-bite gold-icon-sm"></i> Les Préparations</h3>
-                <span class="category-line"></span>
-            </div>
-
-            <div class="grid-products">
-                <div class="product-card" data-id="6">
-                    <div class="product-img-wrapper">
-                        <img src="./img/propos1.png" alt="Viande Hachée de Ladoum" class="product-img">
-                    </div>
-                    <div class="product-card-body">
-                        <div class="badge">Préparation Maison</div>
-                        <h3>Viande Hachée de Ladoum</h3>
-                        <p>Du Ladoum pure viande haché à la commande pour vos recettes d'exception.</p>
-                        <div class="product-footer-row">
-                            <span class="price">Sur devis <small>/ kg</small></span>
-                            <button onclick="addToCart('Viande Hachée de Ladoum', 0, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/propos1.png" alt="Le Gigot Royal" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Majestueux</div>
+                            <h3>Le Gigot Royal</h3>
+                            <p>La pièce maîtresse des grandes tables et repas d'exception.</p>
+                            <div class="product-footer-row">
+                                <span class="price">8 500 FCFA <small>/ kg</small></span>
+                                <button onclick="addToCart('Le Gigot Royal', 8500, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- CATÉGORIE 4: TRADITION & BOX -->
+        <!-- CATÉGORIE 3: LA SÉLECTION TRADITION -->
         <div class="category-block" id="cat-tradition">
             <div class="category-header">
-                <h3><i class="fas fa-utensils gold-icon-sm"></i> Tradition & Box</h3>
+                <h3><i class="fas fa-leaf gold-icon-sm"></i> La Sélection Tradition</h3>
                 <span class="category-line"></span>
             </div>
 
-            <div class="grid-products">
-                <div class="product-card" data-id="7">
-                    <div class="product-img-wrapper">
-                        <img src="./img/1.png" alt="Tête de Mouton" class="product-img">
+            <div class="products-grid-container">
+                <div class="grid-products">
+                    <div class="product-card">
+                        <div class="product-card-body">
+                            <div class="badge">Tradition</div>
+                            <h3>Laxass</h3>
+                            <p>Nettoyé et préparé selon le savoir-faire traditionnel.</p>
+                            <div class="product-footer-row">
+                                <span class="price">50 FCFA <small>/ pièce</small></span>
+                                <button onclick="addToCart('Laxass', 50, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-card-body">
-                        <div class="badge">Tradition</div>
-                        <h3>Tête de Mouton</h3>
-                        <p>Une pièce traditionnelle nettoyée et préparée pour les amateurs de recettes authentiques.</p>
-                        <div class="product-footer-row">
-                            <span class="price">Sur devis <small>/ pièce</small></span>
-                            <button onclick="addToCart('Tête de Mouton', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+
+                    <div class="product-card">
+                        <div class="product-card-body">
+                            <div class="badge">Gourmet</div>
+                            <h3>Foie de Ladoum</h3>
+                            <p>D'une grande fraîcheur, idéal pour vos poêlées minute et grillades.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ portion</small></span>
+                                <button onclick="addToCart('Foie de Ladoum', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-body">
+                            <div class="badge">Finesse</div>
+                            <h3>Cœur de Ladoum</h3>
+                            <p>Une viande ferme et savoureuse, excellente pour les brochettes.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ portion</small></span>
+                                <button onclick="addToCart('Cœur de Ladoum', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-body">
+                            <div class="badge">Tradition</div>
+                            <h3>Testicules</h3>
+                            <p>Préparés et nettoyés minutieusement selon la demande.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ portion</small></span>
+                                <button onclick="addToCart('Testicules', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-body">
+                            <div class="badge">Délicatesse</div>
+                            <h3>Rognons</h3>
+                            <p>Sautés au persil ou grillés, appréciés des fins connaisseurs.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ portion</small></span>
+                                <button onclick="addToCart('Rognons', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-body">
+                            <div class="badge">Authentique</div>
+                            <h3>Tête de Ladoum</h3>
+                            <p>Flambée, nettoyée et préparée prête à la cuisson.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ pièce</small></span>
+                                <button onclick="addToCart('Tête de Ladoum', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-body">
+                            <div class="badge">Incontournable</div>
+                            <h3>Pieds / Tank Xaar</h3>
+                            <p>Pieds de mouton nettoyés avec précision pour vos cuissons mijotées.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ lot</small></span>
+                                <button onclick="addToCart('Pieds / Tank Xaar', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="product-card" data-id="8">
-                    <div class="product-img-wrapper">
-                        <img src="./img/propos1.png" alt="Tête d'Agneau" class="product-img">
-                    </div>
-                    <div class="product-card-body">
-                        <div class="badge">Tradition</div>
-                        <h3>Tête d'Agneau</h3>
-                        <p>Une sélection fine destinée aux amateurs de mets traditionnels tendres.</p>
-                        <div class="product-footer-row">
-                            <span class="price">Sur devis <small>/ pièce</small></span>
-                            <button onclick="addToCart('Tête d\'Agneau', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+        <!-- CATÉGORIE 4: LES BOX LADOUM -->
+        <div class="category-block" id="cat-box">
+            <div class="category-header">
+                <h3><i class="fas fa-box-open gold-icon-sm"></i> Les Box Ladoum</h3>
+                <span class="category-line"></span>
+            </div>
+
+            <div class="products-grid-container">
+                <div class="grid-products">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/1.png" alt="Box Grillade" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Pack BBQ</div>
+                            <h3>Box Grillade (1,5 kg)</h3>
+                            <p>Composition : 500g Côtelettes + 500g Côte d'Or + 500g Poitrine.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ coffret</small></span>
+                                <button onclick="addToCart('Box Grillade (1,5 kg)', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="product-card" data-id="9">
-                    <div class="product-img-wrapper">
-                        <img src="./img/1.png" alt="Box Laxass" class="product-img">
-                    </div>
-                    <div class="product-card-body">
-                        <div class="badge">Sélection Tradition</div>
-                        <h3>Box Laxass</h3>
-                        <p>Une sélection préparée pour retrouver les saveurs authentiques autour du mouton.</p>
-                        <div class="product-footer-row">
-                            <span class="price">Sur devis <small>/ box</small></span>
-                            <button onclick="addToCart('Box Laxass', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/propos1.png" alt="Box Famille" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Pack Généreux</div>
+                            <h3>Box Famille (2,5 kg)</h3>
+                            <p>Composition : 1 kg Viande + 500g Épaule + 500g Poitrine + 500g Haché.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ coffret</small></span>
+                                <button onclick="addToCart('Box Famille (2,5 kg)', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="product-card" data-id="10">
-                    <div class="product-img-wrapper">
-                        <img src="./img/propos1.png" alt="Box Pied de Mouton - Tank Xaar" class="product-img">
+                    <div class="product-card">
+                        <div class="product-card-body">
+                            <div class="badge">Offre Spéciale</div>
+                            <h3>Box Laxass (10 pièces)</h3>
+                            <p>10 pièces de Laxass nettoyées. Tarif préférentiel : 400 FCFA au lieu de 500 FCFA.</p>
+                            <div class="product-footer-row">
+                                <span class="price">400 FCFA <small><s style="color:red; font-size:0.75rem;">500 FCFA</s></small></span>
+                                <button onclick="addToCart('Box Laxass (10 pièces)', 400, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-card-body">
-                        <div class="badge">Incontournable</div>
-                        <h3>Box Pied de Mouton</h3>
-                        <p>Assortiment Tank Xaar soigneusement nettoyé et découpé, prêt à cuisiner.</p>
-                        <div class="product-footer-row">
-                            <span class="price">Sur devis <small>/ box</small></span>
-                            <button onclick="addToCart('Box Pied de Mouton (Tank Xaar)', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+
+                    <div class="product-card">
+                        <div class="product-card-body">
+                            <div class="badge">Format Généreux</div>
+                            <h3>Box Tank Xaar</h3>
+                            <p>Lot complet de pieds nettoyés et préparés à tarif préférentiel.</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ lot</small></span>
+                                <button onclick="addToCart('Box Tank Xaar', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="./img/1.png" alt="Box Réception" class="product-img">
+                        </div>
+                        <div class="product-card-body">
+                            <div class="badge">Prestige VIP</div>
+                            <h3>Box Réception</h3>
+                            <p>1 Gigot Royal + 1 kg Côtelettes + 1 kg Côte d'Or + 1 kg Poitrine (8-12 pers.).</p>
+                            <div class="product-footer-row">
+                                <span class="price">Sur devis <small>/ coffret</small></span>
+                                <button onclick="addToCart('Box Réception', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -290,18 +490,16 @@
             <h3><i class="fas fa-shopping-bag"></i> Votre Sélection</h3>
             <button class="close-drawer" onclick="toggleCart()">&times;</button>
         </div>
-
         <div class="cart-drawer-body" id="cart-items">
-            <p class="empty-cart-msg">Votre panier est actuellement vide.</p>
+            <!-- Les éléments du panier seront affichés ici dynamiquement par JavaScript -->
         </div>
-
         <div class="cart-drawer-footer">
-            <div class="cart-summary">
-                <span>Total Estimé</span>
-                <strong id="cart-total-price">0 FCFA</strong>
+            <div class="cart-total-row">
+                <span>Total :</span>
+                <span id="cart-total-price">0 FCFA</span>
             </div>
-            <button class="btn-whatsapp-order" onclick="checkoutWhatsApp()">
-                <i class="fab fa-whatsapp"></i> Commander via WhatsApp
+            <button class="btn-gold btn-checkout" onclick="checkoutWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Valider par WhatsApp
             </button>
         </div>
     </aside>

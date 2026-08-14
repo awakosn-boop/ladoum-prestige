@@ -1,1368 +1,1291 @@
-/* Palette dynamique Ladoum Prestige */
-:root {
-    --bg-color: #ffffff;
-    --text-color: #0c0c0c;
-    --text-muted: #666666;
-    --accent-gold: #b69262;
-    --accent-rouge: #800000;
-    
-    --card-bg: #ffffff;
-    --card-border: #f0f0f0;
-    --card-shadow: rgba(128, 0, 0, 0.15);
-    
-    /* Styles HOVER sur Fond Blanc : ROUGE & BLANC */
-    --hover-card-bg: #800000;
-    --hover-card-text: #ffffff;
-    --hover-card-muted: #f0e6e6;
-    --hover-card-border: #b69262;
-    --hover-btn-bg: #800000;          /* Bouton Rouge au survol */
-    --hover-btn-text: #ffffff;        /* Écriture Blanche au survol */
-    --hover-btn-border: #800000;      /* Bordure Rouge */
-    
-    --section-sublabel: #800000;      /* "Une Sélection Unique" en Rouge */
-    
-    --header-border: rgba(182, 146, 98, 0.25);
-    --footer-bg: #fafafa;
-}
+/* ==========================================================================
+   1. VARIABLES & PALETTE DYNAMIQUE (Ladoum Prestige)
+   ========================================================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
-/* THÈME SOMBRE (Fond Noir) */
-[data-theme="dark"] {
-    --bg-color: #0c0c0c;
-    --text-color: #ffffff;
-    --text-muted: #aaaaaa;
-    
-    --card-bg: #141414;
-    --card-border: rgba(182, 146, 98, 0.3);
-    --card-shadow: rgba(182, 146, 98, 0.3);
-    
-    /* Styles HOVER sur Fond Noir */
-    --hover-card-bg: #b69262;
-    --hover-card-text: #800000;
-    --hover-card-muted: #4a0000;
-    --hover-card-border: #ffffff;
-    --hover-btn-bg: #800000;
-    --hover-btn-text: #ffffff;
-    --hover-btn-border: #800000;
-    
-    --section-sublabel: #b69262;
-    
-    --header-border: rgba(182, 146, 98, 0.3);
-    --footer-bg: #050505;
-}
+   :root {
+       --bg-color: #ffffff;
+       --text-color: #0c0c0c;
+       --text-muted: #666666;
+       --accent-gold: #b69262;
+       --accent-rouge: #800000;
+       
+       --card-bg: #ffffff;
+       --card-border: #f0f0f0;
+       --card-shadow: rgba(128, 0, 0, 0.15);
+       
+       /* Styles Hover */
+       --hover-card-bg: #800000;
+       --hover-card-text: #ffffff;
+       --hover-card-muted: #f0e6e6;
+       --hover-card-border: #b69262;
+       --hover-btn-bg: #800000;
+       --hover-btn-text: #ffffff;
+       --hover-btn-border: #800000;
+       
+       --section-sublabel: #800000;
+       --header-border: rgba(182, 146, 98, 0.25);
+       --footer-bg: #fafafa;
+       --section-viandes-bg: #f4efe9;
+   }
+   
+   /* Thème Sombre */
+   [data-theme="dark"] {
+       --bg-color: #0c0c0c;
+       --text-color: #ffffff;
+       --text-muted: #aaaaaa;
+       
+       --card-bg: #141414;
+       --card-border: rgba(182, 146, 98, 0.3);
+       --card-shadow: rgba(182, 146, 98, 0.3);
+       
+       --hover-card-bg: #b69262;
+       --hover-card-text: #800000;
+       --hover-card-muted: #4a0000;
+       --hover-card-border: #ffffff;
+       --hover-btn-bg: #800000;
+       --hover-btn-text: #ffffff;
+       --hover-btn-border: #800000;
+       
+       --section-sublabel: #b69262;
+       --header-border: rgba(182, 146, 98, 0.3);
+       --footer-bg: #050505;
+       --section-viandes-bg: #181818;
+   }
+   
+   /* Thème Bordeaux Prestige */
+   [data-theme="red"] {
+       --bg-color: #4a0000;
+       --text-color: #ffffff;
+       --text-muted: #e0d0d0;
+       
+       --card-bg: #5c0000;
+       --card-border: rgba(182, 146, 98, 0.5);
+       --card-shadow: rgba(0, 0, 0, 0.5);
+       
+       --hover-card-bg: #0c0c0c;
+       --hover-card-text: #b69262;
+       --hover-card-muted: #ffffff;
+       --hover-card-border: #b69262;
+       --hover-btn-bg: #b69262;
+       --hover-btn-text: #0c0c0c;
+       --hover-btn-border: #b69262;
+       
+       --section-sublabel: #b69262;
+       --header-border: rgba(182, 146, 98, 0.5);
+       --footer-bg: #330000;
+       --section-viandes-bg: #3a0000;
+   }
+   
+   /* ==========================================================================
+      2. REINITIALISATION & TYPOGRAPHIE
+      ========================================================================== */
+   * {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+   }
+   
+   body {
+       background-color: var(--bg-color);
+       color: var(--text-color);
+       font-family: 'Montserrat', sans-serif;
+       line-height: 1.6;
+       overflow-x: hidden;
+   }
+   
+   h1, h2, h3, .brand-title {
+       font-family: 'Cormorant Garamond', serif;
+       letter-spacing: 1px;
+   }
+   
+   /* ==========================================================================
+      3. HEADER & NAVIGATION
+      ========================================================================== */
+   header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       padding: 10px 5%;
+       height: 100px;
+       background-color: var(--bg-color);
+       border-bottom: 1px solid var(--header-border);
+       position: sticky;
+       top: 0;
+       z-index: 100;
+   }
+   
+   .logo {
+       display: flex;
+       align-items: center;
+   }
+   
+   .logo-img {
+       height: 200px;
+       width: auto;
+       object-fit: contain;
+       transition: opacity 0.3s ease;
+   }
+   
+   nav {
+       display: flex;
+       align-items: center;
+   }
+   
+   nav a {
+       color: var(--text-color);
+       text-decoration: none;
+       margin-left: 20px;
+       font-size: 0.8rem;
+       font-weight: 500;
+       text-transform: uppercase;
+       letter-spacing: 1.5px;
+   }
+   
+   nav a:hover {
+       color: var(--accent-rouge);
+   }
+   
+   .nav-wa {
+       color: var(--accent-gold) !important;
+       font-weight: 600 !important;
+   }
+   
+   /* Sélecteur de Thème */
+   .theme-switcher {
+       display: flex;
+       align-items: center;
+       gap: 8px;
+       margin-left: 20px;
+       padding-left: 15px;
+       border-left: 1px solid var(--header-border);
+   }
+   
+   .theme-dot {
+       width: 18px;
+       height: 18px;
+       border-radius: 50%;
+       cursor: pointer;
+       border: 2px solid transparent;
+   }
+   
+   .theme-dot:hover {
+       transform: scale(1.3);
+       box-shadow: 0 0 8px var(--accent-gold);
+   }
+   
+   .theme-dot.active {
+       border-color: var(--accent-gold);
+   }
+   
+   .dot-light { background-color: #ffffff; border: 1px solid #ccc; }
+   .dot-dark { background-color: #0c0c0c; }
+   .dot-red { background-color: #800000; }
+   
+   /* Actions Header (Mobile / Desktop) */
+   .header-actions {
+       display: flex;
+       align-items: center;
+       gap: 10px;
+   }
+   
+   .mobile-menu-btn {
+       display: none;
+       background: transparent;
+       border: 1px solid var(--accent-gold);
+       color: var(--text-color);
+       width: 40px;
+       height: 40px;
+       border-radius: 50%;
+       cursor: pointer;
+       font-size: 1.2rem;
+       align-items: center;
+       justify-content: center;
+   }
+   
+   /* ==========================================================================
+      4. HERO SECTION
+      ========================================================================== */
+   .hero {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       padding: 0 4%;
+       width: 100%;
+       height: calc(100vh - 100px);
+       max-width: 1600px;
+       margin: 0 auto;
+       gap: 20px;
+       overflow: hidden;
+   }
+   
+   .hero-content {
+       flex: 0.9;
+       text-align: left;
+       z-index: 2;
+   }
+   
+   .hero .label-prestige {
+       color: var(--accent-gold);
+       font-size: 0.75rem;
+       text-transform: uppercase;
+       letter-spacing: 3px;
+       font-weight: 600;
+       margin-bottom: 8px;
+   }
+   
+   .hero h1 {
+       color: var(--text-color);
+       font-size: 3.2rem;
+       line-height: 1;
+       margin-bottom: 10px;
+   }
+   
+   .tagline {
+       color: #800000 !important;
+       font-family: 'Cormorant Garamond', serif;
+       font-size: 2rem;
+       font-style: italic;
+       font-weight: 600;
+       margin-bottom: 15px;
+   }
+   
+   .description {
+       color: var(--text-muted);
+       font-size: 0.95rem;
+       font-weight: 300;
+       max-width: 620px;
+       margin-bottom: 25px;
+       line-height: 1.7;
+   }
+   
+   /* CTA Group & Boutons */
+   .cta-group {
+       display: flex;
+       justify-content: flex-start;
+       align-items: center;
+       gap: 15px;
+   }
+   
+   .btn-gold, .btn-outline {
+       white-space: nowrap;
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+       padding: 12px 28px;
+       text-decoration: none;
+       font-size: 0.75rem;
+       font-weight: 600;
+       text-transform: uppercase;
+       letter-spacing: 2px;
+       border-radius: 2px;
+       border: 1px solid var(--accent-gold);
+   }
+   
+   .btn-gold {
+       background-color: var(--accent-gold);
+       color: #ffffff;
+   }
+   
+   .btn-outline {
+       background-color: transparent;
+       color: var(--text-color);
+   }
+   
+   .btn-gold:hover, .btn-outline:hover {
+       background-color: var(--hover-btn-bg);
+       color: var(--hover-btn-text);
+       border-color: var(--hover-btn-border);
+       transform: translateY(-2px);
+   }
+   
+   .hero-image-wrapper {
+       flex: 1.6;
+       height: 100%;
+       display: flex;
+       justify-content: flex-end;
+       align-items: center;
+   }
+   
+   .hero-ladoum-img {
+       width: 100%;
+       max-width: 1100px;
+       max-height: 200vh;
+       object-fit: contain;
+       border-radius: 4px;
+       transition: transform 0.4s ease;
+   }
+   
+   .hero-image-wrapper:hover .hero-ladoum-img {
+       transform: scale(1.02);
+   }
+   
+   /* ==========================================================================
+      5. CATALOGUE PRODUITS
+      ========================================================================== */
+   .products {
+       padding: 80px 8%;
+   }
+   
+   .products-header {
+       text-align: center;
+       margin-bottom: 50px;
+   }
+   
+   .products-header h2 {
+       font-size: 2.5rem;
+       color: var(--text-color);
+   }
+   
+   .products-header p {
+       color: var(--section-sublabel);
+       font-size: 0.85rem;
+       letter-spacing: 2px;
+       text-transform: uppercase;
+       font-weight: 600;
+   }
+   
+   .products-subintro {
+       color: var(--text-muted);
+       font-size: 0.95rem;
+       margin-top: 8px;
+   }
+   
+   .category-block {
+       margin-top: 50px;
+   }
+   
+   .category-header {
+       display: flex;
+       align-items: center;
+       gap: 20px;
+       margin-bottom: 30px;
+   }
+   
+   .category-header h3 {
+       font-size: 1.5rem;
+       font-family: 'Cormorant Garamond', serif;
+       color: var(--text-color);
+       white-space: nowrap;
+       margin: 0;
+   }
+   
+   .category-line {
+       flex: 1;
+       height: 1px;
+       background: linear-gradient(90deg, var(--accent-gold) 0%, rgba(182, 146, 98, 0.1) 100%);
+   }
+   
+   .grid-products {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+       gap: 30px;
+   }
+   
+   .product-card {
+       background-color: var(--card-bg);
+       border: 1px solid var(--card-border);
+       border-radius: 4px;
+       position: relative;
+       display: flex;
+       flex-direction: column;
+       overflow: hidden;
+   }
+   
+   .product-img-wrapper {
+       width: 100%;
+       height: 200px;
+       overflow: hidden;
+       background-color: #fafafa;
+       border-bottom: 1px solid var(--card-border);
+   }
+   
+   .product-img {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       transition: transform 0.4s ease;
+   }
+   
+   .product-card-body {
+       padding: 25px 20px;
+       display: flex;
+       flex-direction: column;
+       flex: 1;
+   }
+   
+   .badge {
+       color: var(--accent-gold);
+       font-size: 0.7rem;
+       text-transform: uppercase;
+       letter-spacing: 2px;
+       font-weight: 600;
+       margin-bottom: 12px;
+   }
+   
+   .product-card-body h3 {
+       font-size: 1.35rem;
+       color: var(--text-color);
+       margin-bottom: 8px;
+   }
+   
+   .product-card-body p {
+       color: var(--text-muted);
+       font-size: 0.85rem;
+       margin-bottom: 20px;
+       flex: 1;
+   }
+   
+   .price {
+       display: block;
+       color: var(--accent-gold);
+       font-family: 'Cormorant Garamond', serif;
+       font-size: 1.3rem;
+       font-weight: 700;
+       margin-bottom: 0 !important;
+   }
+   
+   .product-footer-row {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       margin-top: 15px;
+       padding-top: 12px;
+       border-top: 1px solid var(--card-border);
+   }
+   
+   .btn-card {
+       display: block;
+       text-align: center;
+       background-color: var(--accent-gold);
+       color: #ffffff;
+       text-decoration: none;
+       padding: 8px 18px;
+       font-size: 0.75rem;
+       font-weight: 600;
+       text-transform: uppercase;
+       letter-spacing: 2px;
+       border-radius: 2px;
+       border: 1px solid var(--accent-gold);
+   }
+   
+   /* Hover Cartes */
+   .product-card:hover {
+       background-color: var(--hover-card-bg);
+       border-color: var(--hover-card-border);
+       transform: translateY(-6px);
+       box-shadow: 0 12px 25px var(--card-shadow);
+   }
+   
+   .product-card:hover .product-img {
+       transform: scale(1.05);
+   }
+   
+   .product-card:hover h3,
+   .product-card:hover p,
+   .product-card:hover .badge {
+       color: var(--hover-card-text);
+   }
+   
+   .product-card:hover .price {
+       color: var(--hover-card-border);
+   }
+   
+   .product-card:hover .btn-card {
+       background-color: var(--hover-btn-bg);
+       color: var(--hover-btn-text);
+       border-color: var(--hover-btn-border);
+   }
+   
+   .cta-all-products {
+       text-align: center;
+       margin-top: 40px;
+       padding: 20px 0;
+   }
+   
+   /* Section Viandes Personnalisée */
+   #decoupes.products {
+       background-color: var(--section-viandes-bg);
+       border-top: 1px solid var(--header-border);
+       border-bottom: 1px solid var(--header-border);
+       margin: 40px 0;
+   }
+   
+   /* ==========================================================================
+      6. SECTIONS D'INFORMATION (Pourquoi, À propos, Service)
+      ========================================================================== */
+   .why-ladoum-section, .service-section {
+       padding: 70px 8%;
+       background-color: var(--card-bg);
+       border-top: 1px solid var(--header-border);
+       border-bottom: 1px solid var(--header-border);
+       text-align: center;
+   }
+   
+   .why-header h2, .service-header h2 {
+       font-size: 2.2rem;
+       color: var(--text-color);
+       margin-bottom: 12px;
+   }
+   
+   .why-intro, .service-intro {
+       max-width: 750px;
+       margin: 0 auto 40px;
+       color: var(--text-muted);
+       font-size: 0.95rem;
+       line-height: 1.7;
+   }
+   
+   .why-grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+       gap: 25px;
+   }
+   
+   .why-card {
+       padding: 30px 20px;
+       border: 1px solid var(--card-border);
+       border-radius: 4px;
+       background-color: var(--bg-color);
+   }
+   
+   .why-card:hover {
+       transform: translateY(-5px);
+   }
+   
+   .why-icon, .gold-icon {
+       font-size: 2rem;
+       color: var(--accent-gold);
+       margin-bottom: 15px;
+   }
+   
+   .why-card h3 {
+       font-size: 1.25rem;
+       margin-bottom: 10px;
+       color: var(--text-color);
+   }
+   
+   .why-card p {
+       font-size: 0.88rem;
+       color: var(--text-muted);
+       line-height: 1.6;
+   }
+   
+   /* Service & Livraison */
+   .service-steps-grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+       gap: 25px;
+   }
+   
+   .service-step-card {
+       padding: 30px 20px;
+       border: 1px solid var(--card-border);
+       border-radius: 4px;
+       background-color: var(--bg-color);
+       text-align: left;
+   }
+   
+   .service-step-card:hover {
+       transform: translateY(-5px);
+       border-color: var(--accent-gold);
+   }
+   
+   .step-num {
+       font-family: 'Cormorant Garamond', serif;
+       font-size: 2rem;
+       font-weight: 700;
+       color: var(--accent-gold);
+       display: block;
+       margin-bottom: 10px;
+   }
+   
+   .service-step-card h3 {
+       font-size: 1.2rem;
+       color: var(--text-color);
+       margin-bottom: 10px;
+   }
+   
+   .service-step-card p {
+       font-size: 0.88rem;
+       color: var(--text-muted);
+       line-height: 1.6;
+   }
+   
+   /* À Propos */
+   .about-section {
+       padding: 80px 10%;
+       background-color: var(--card-bg);
+       border-top: 1px solid var(--header-border);
+       border-bottom: 1px solid var(--header-border);
+   }
+   
+   .about-container {
+       display: flex;
+       align-items: center;
+       gap: 50px;
+       justify-content: space-between;
+   }
+   
+   .about-text {
+       flex: 1.2;
+   }
+   
+   .about-text h2 {
+       font-size: 2.2rem;
+       margin-bottom: 20px;
+       color: var(--text-color);
+   }
+   
+   .about-description {
+       font-size: 1rem;
+       line-height: 1.7;
+       color: var(--text-muted);
+       margin-bottom: 15px;
+   }
+   
+   .about-stats {
+       display: flex;
+       gap: 30px;
+       margin-top: 30px;
+       padding-top: 20px;
+       border-top: 1px solid var(--card-border);
+   }
+   
+   .stat-item {
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .stat-number {
+       font-family: 'Cormorant Garamond', serif;
+       font-size: 1.8rem;
+       font-weight: 700;
+       color: var(--accent-gold);
+   }
+   
+   .stat-label {
+       font-size: 0.8rem;
+       color: var(--text-muted);
+       text-transform: uppercase;
+       letter-spacing: 1px;
+   }
+   
+   .about-badge-card {
+       flex: 0.8;
+       background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(139, 0, 0, 0.05) 100%);
+       border: 1px solid var(--accent-gold);
+       padding: 40px;
+       border-radius: 4px;
+       text-align: center;
+   }
+   
+   .badge-content h3 {
+       font-size: 1.4rem;
+       margin-bottom: 10px;
+       color: var(--text-color);
+   }
+   
+   .badge-content p {
+       font-size: 0.9rem;
+       color: var(--text-muted);
+       line-height: 1.6;
+   }
+   
+   /* ==========================================================================
+      7. PANIER & DRAWER
+      ========================================================================== */
+   .cart-trigger {
+       background: transparent;
+       border: 1px solid var(--accent-gold);
+       color: var(--text-color);
+       width: 40px;
+       height: 40px;
+       border-radius: 50%;
+       cursor: pointer;
+       position: relative;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       margin-left: 15px;
+   }
+   
+   .cart-trigger:hover {
+       background-color: var(--accent-gold);
+       color: #ffffff;
+   }
+   
+   .cart-badge {
+       position: absolute;
+       top: -5px;
+       right: -5px;
+       background-color: var(--accent-rouge);
+       color: #ffffff;
+       font-size: 0.65rem;
+       font-weight: 700;
+       width: 18px;
+       height: 18px;
+       border-radius: 50%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+   
+   .cart-overlay {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100vw;
+       height: 100vh;
+       background: rgba(0, 0, 0, 0.6);
+       backdrop-filter: blur(3px);
+       z-index: 200;
+       opacity: 0;
+       visibility: hidden;
+   }
+   
+   .cart-overlay.active {
+       opacity: 1;
+       visibility: visible;
+   }
+   
+   .cart-drawer {
+       position: fixed;
+       top: 0;
+       right: -400px;
+       width: 380px;
+       max-width: 90vw;
+       height: 100vh;
+       background-color: var(--bg-color);
+       border-left: 1px solid var(--header-border);
+       z-index: 201;
+       display: flex;
+       flex-direction: column;
+       transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+       box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+   }
+   
+   .cart-drawer.open {
+       right: 0;
+   }
+   
+   .cart-drawer-header {
+       padding: 20px;
+       border-bottom: 1px solid var(--header-border);
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+   
+   .cart-drawer-header h3 {
+       font-size: 1.2rem;
+       color: var(--text-color);
+   }
+   
+   .close-drawer {
+       background: none;
+       border: none;
+       font-size: 1.8rem;
+       color: var(--text-color);
+       cursor: pointer;
+   }
+   
+   .cart-drawer-body {
+       flex: 1;
+       padding: 20px;
+       overflow-y: auto;
+   }
+   
+   .empty-cart-msg {
+       text-align: center;
+       color: var(--text-muted);
+       font-size: 0.9rem;
+       margin-top: 50px;
+   }
+   
+   .cart-item {
+       display: flex;
+       flex-direction: column;
+       padding: 15px 0;
+       border-bottom: 1px solid var(--card-border);
+       gap: 8px;
+   }
+   
+   .cart-item-header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+   
+   .cart-item-title {
+       font-weight: 600;
+       font-size: 0.95rem;
+       color: var(--text-color);
+   }
+   
+   .cart-item-remove {
+       background: none;
+       border: none;
+       color: var(--accent-rouge);
+       cursor: pointer;
+       font-size: 0.85rem;
+   }
+   
+   .cart-item-controls {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       margin-top: 5px;
+   }
+   
+   .kilo-picker {
+       display: flex;
+       align-items: center;
+       border: 1px solid var(--accent-gold);
+       border-radius: 2px;
+   }
+   
+   .kilo-btn {
+       background: transparent;
+       border: none;
+       color: var(--text-color);
+       width: 28px;
+       height: 28px;
+       cursor: pointer;
+       font-weight: 600;
+   }
+   
+   .kilo-value {
+       padding: 0 8px;
+       font-size: 0.85rem;
+       font-weight: 600;
+   }
+   
+   .cart-item-subtotal {
+       font-family: 'Cormorant Garamond', serif;
+       font-weight: 700;
+       font-size: 1.1rem;
+       color: var(--accent-gold);
+   }
+   
+   .cart-drawer-footer {
+       padding: 20px;
+       border-top: 1px solid var(--header-border);
+       background-color: var(--card-bg);
+   }
+   
+   .cart-summary {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       margin-bottom: 15px;
+       font-size: 1rem;
+   }
+   
+   .cart-summary strong {
+       font-family: 'Cormorant Garamond', serif;
+       font-size: 1.5rem;
+       color: var(--accent-gold);
+   }
+   
+   .btn-whatsapp-order {
+       width: 100%;
+       background-color: #25D366;
+       color: #ffffff;
+       border: none;
+       padding: 14px;
+       font-size: 0.8rem;
+       font-weight: 600;
+       text-transform: uppercase;
+       letter-spacing: 1.5px;
+       border-radius: 2px;
+       cursor: pointer;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       gap: 10px;
+   }
+   
+   .btn-whatsapp-order:hover {
+       background-color: #1eb854;
+   }
+   
+   /* ==========================================================================
+      8. FOOTER
+      ========================================================================== */
+   footer {
+       text-align: center;
+       padding: 30px 20px;
+       background-color: var(--footer-bg);
+       border-top: 1px solid var(--header-border);
+       color: var(--text-muted);
+       font-size: 0.8rem;
+   }
+   
+   /* ==========================================================================
+      9. RESPONSIVE & BREAKPOINTS
+      ========================================================================== */
+   
+   /* Structure Panier Desktop / Mobile */
+   @media (min-width: 901px) {
+       .mobile-only {
+           display: none !important;
+       }
+       .desktop-cart {
+           display: flex !important;
+       }
+   }
+   
+   @media (max-width: 900px) {
+       .desktop-cart {
+           display: none !important;
+       }
+       .mobile-only {
+           display: flex !important;
+           align-items: center;
+           gap: 10px;
+       }
+   
+       header {
+           height: 75px !important;
+           padding: 10px 5% !important;
+           flex-direction: row !important;
+           justify-content: space-between !important;
+           position: sticky;
+           top: 0;
+           z-index: 150;
+       }
+   
+       .logo-img {
+           height: 100px !important;
+           width: auto !important;
+       }
+   
+       .mobile-menu-btn {
+           display: flex !important;
+       }
+   
+       nav#main-nav {
+           position: fixed;
+           top: 75px;
+           left: 0;
+           width: 100%;
+           background-color: var(--bg-color);
+           border-bottom: 2px solid var(--accent-gold);
+           flex-direction: column !important;
+           align-items: center !important;
+           padding: 25px 0 !important;
+           gap: 18px !important;
+           box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+           display: none !important;
+           z-index: 140;
+       }
+   
+       nav#main-nav.active {
+           display: flex !important;
+       }
+   
+       nav#main-nav a {
+           margin: 0 !important;
+           font-size: 0.95rem !important;
+       }
+   
+       .theme-switcher {
+           margin: 10px 0 0 0 !important;
+           padding-left: 0 !important;
+           border-left: none !important;
+       }
+   
+       .hero {
+           flex-direction: column-reverse;
+           height: auto;
+           padding: 30px 5%;
+           gap: 25px;
+       }
+   
+       .hero-content {
+           text-align: center;
+           width: 100%;
+       }
+   
+       .hero h1 { font-size: 2.2rem; }
+       .tagline { font-size: 1.5rem; }
+   
+       .description {
+           font-size: 0.85rem;
+           margin-left: auto;
+           margin-right: auto;
+       }
+   
+       .cta-group {
+           justify-content: center;
+           flex-direction: column;
+           width: 100%;
+           gap: 10px;
+       }
+   
+       .btn-gold, .btn-outline {
+           width: 100%;
+           padding: 12px 15px;
+       }
+   
+       .hero-image-wrapper {
+           width: 100%;
+           justify-content: center;
+       }
+   
+       .hero-ladoum-img {
+           max-width: 100%;
+           max-height: 45vh;
+       }
+   
+       .products {
+           padding: 40px 5%;
+       }
+   
+       .products-header h2 {
+           font-size: 1.8rem;
+       }
+   }
+   
+   /* Mobile & Tablette (< 768px) */
+   @media (max-width: 768px) {
+       .products-header {
+           margin-bottom: 25px;
+       }
+   
+       .category-block {
+           margin-top: 35px;
+       }
+   
+       /* Carrousel Tactile Produit */
+       .grid-products {
+           display: flex !important;
+           overflow-x: auto !important;
+           scroll-snap-type: x mandatory;
+           gap: 15px !important;
+           padding-bottom: 15px;
+           -webkit-overflow-scrolling: touch;
+           -ms-overflow-style: none;
+           scrollbar-width: none;
+       }
+   
+       .grid-products::-webkit-scrollbar {
+           display: none;
+       }
+   
+       .grid-products .product-card {
+           flex: 0 0 82% !important;
+           scroll-snap-align: center;
+           min-width: 260px;
+       }
+   
+       .product-img-wrapper {
+           height: 160px !important;
+       }
+   
+       .product-card-body {
+           padding: 15px !important;
+       }
+   
+       .product-card-body h3 {
+           font-size: 1.15rem !important;
+       }
+   
+       .product-card-body p {
+           font-size: 0.8rem !important;
+           margin-bottom: 12px !important;
+       }
+   
+       .category-header::after {
+           content: "Glisser ➔";
+           font-size: 0.75rem;
+           color: var(--accent-gold);
+           font-weight: 500;
+           margin-left: auto;
+       }
+   
+       /* Adapations Section Viandes */
+       #decoupes.products .products-header,
+       #decoupes.products .category-header {
+           text-align: center;
+           justify-content: center;
+       }
+   
+       #decoupes.products .category-header h3 {
+           margin: 0 auto;
+       }
+   
+       #decoupes.products .category-line,
+       #decoupes.products .category-header::after {
+           display: none;
+       }
+   
+       #decoupes.products .grid-products {
+           justify-content: center;
+       }
+   
+       #decoupes.products .product-card {
+           margin: 0 auto;
+           text-align: center;
+       }
+   
+       #decoupes.products .badge {
+           align-self: center;
+       }
+   
+       #decoupes.products .product-footer-row {
+           justify-content: center;
+           flex-direction: column;
+           gap: 10px;
+       }
+   
+       /* Adaptation À propos */
+       .about-container {
+           flex-direction: column;
+           gap: 30px;
+       }
+   
+       .about-stats {
+           flex-wrap: wrap;
+           gap: 20px;
+       }
+   }
 
-/* THÈME BORDEAUX PRESTIGE (Fond Rouge) */
-[data-theme="red"] {
-    --bg-color: #4a0000;
-    --text-color: #ffffff;
-    --text-muted: #e0d0d0;
-    
-    --card-bg: #5c0000;
-    --card-border: rgba(182, 146, 98, 0.5);
-    --card-shadow: rgba(0, 0, 0, 0.5);
-    
-    /* Styles HOVER sur Fond Bordeaux */
-    --hover-card-bg: #0c0c0c;
-    --hover-card-text: #b69262;
-    --hover-card-muted: #ffffff;
-    --hover-card-border: #b69262;
-    --hover-btn-bg: #b69262;
-    --hover-btn-text: #0c0c0c;
-    --hover-btn-border: #b69262;
-    
-    --section-sublabel: #b69262;
-    
-    --header-border: rgba(182, 146, 98, 0.5);
-    --footer-bg: #330000;
-}
+   /* =========================================================
+   STYLE DE NAVIGATION : BOUTONS DE FOND ROUGE & TEXTE BLANC
+   ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Typographie */
-h1, h2, h3, .brand-title {
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 1px;
-}
-
-/* Header Compact & Ajusté */
-header {
+#main-nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;
-    height: 100px;
-    background-color: var(--bg-color);
-    border-bottom: 1px solid var(--header-border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    gap: 12px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    height: 200px;
-    width: auto;
-    object-fit: contain;
-    transition: opacity 0.3s ease;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-}
-
-nav a {
-    color: var(--text-color);
+#main-nav a {
     text-decoration: none;
-    margin-left: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-nav a:hover {
-    color: var(--accent-rouge);
-}
-
-.nav-wa {
-    color: var(--accent-gold) !important;
-    font-weight: 600 !important;
-}
-
-/* Sélecteur de Thème */
-.theme-switcher {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: 20px;
-    padding-left: 15px;
-    border-left: 1px solid var(--header-border);
-}
-
-.theme-dot {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid transparent;
-}
-
-.theme-dot:hover {
-    transform: scale(1.3);
-    box-shadow: 0 0 8px var(--accent-gold);
-}
-
-.theme-dot.active {
-    border-color: var(--accent-gold);
-}
-
-.dot-light { background-color: #ffffff; border: 1px solid #ccc; }
-.dot-dark { background-color: #0c0c0c; }
-.dot-red { background-color: #800000; }
-
-/* HERO SECTION */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 4%;
-    width: 100%;
-    height: calc(100vh - 100px);
-    max-width: 1600px;
-    margin: 0 auto;
-    gap: 20px;
-    overflow: hidden;
-}
-
-.hero-content {
-    flex: 0.9;
-    text-align: left;
-    z-index: 2;
-}
-
-.hero .label-prestige {
-    color: var(--accent-gold);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    color: #222222;
+    padding: 8px 16px;
+    border-radius: 6px;
     font-weight: 600;
-    margin-bottom: 8px;
+    transition: all 0.25s ease-in-out;
+    display: inline-block;
 }
 
-.hero h1 {
-    color: var(--text-color);
-    font-size: 3.2rem;
-    line-height: 1;
-    margin-bottom: 10px;
+/* Survol (hover) ET Onglet actif (.active) */
+#main-nav a:hover,
+#main-nav a.active {
+    background-color: #8b0000 !important; /* Fond bordeaux/rouge prestige */
+    color: #ffffff !important;           /* Écriture blanche nette */
+    box-shadow: 0 2px 8px rgba(139, 0, 0, 0.25);
 }
 
-.tagline {
-    color: #800000 !important;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-style: italic;
-    font-weight: 600;
-    margin-bottom: 15px;
+/* Style spécifique conservé pour le bouton WhatsApp */
+#main-nav a.nav-wa {
+    background-color: transparent;
+    color: #25d366;
+    border: 1px solid #25d366;
 }
 
-.description {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    font-weight: 300;
-    max-width: 620px;
-    margin-bottom: 25px;
-    line-height: 1.7;
+#main-nav a.nav-wa:hover {
+    background-color: #25d366 !important;
+    color: #ffffff !important;
+    border-color: #25d366;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
 }
 
-/* CTA Group */
-.cta-group {
+/* =========================================================
+   STYLE DE NAVIGATION : BOUTON FOND ROUGE ET TEXTE BLANC
+   ========================================================= */
+
+   #main-nav {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    gap: 15px;
-    flex-wrap: nowrap;
+    gap: 12px;
 }
 
-.btn-gold, .btn-outline {
-    white-space: nowrap;
+#main-nav a {
+    text-decoration: none;
+    color: #222222;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.25s ease-in-out;
+    display: inline-block;
+}
+
+/* Au survol ET sur la page active : fond rouge + texte blanc */
+#main-nav a:hover,
+#main-nav a.active {
+    background-color: #8b0000 !important; /* Rouge / Bordeaux prestige */
+    color: #ffffff !important;           /* Écriture blanche */
+    box-shadow: 0 2px 8px rgba(139, 0, 0, 0.25);
+}
+
+/* Bouton WhatsApp */
+#main-nav a.nav-wa {
+    background-color: transparent;
+    color: #25d366;
+    border: 1px solid #25d366;
+}
+
+#main-nav a.nav-wa:hover {
+    background-color: #25d366 !important;
+    color: #ffffff !important;
+    border-color: #25d366;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+
+/* =========================================================
+   NAVIGATION : ÉGALEMENT ESPACÉE & BOUTON FOND ROUGE / TEXTE BLANC
+   ========================================================= */
+
+   #main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px; /* Distance strictement égale entre TOUS les éléments */
+}
+
+#main-nav a {
+    text-decoration: none;
+    color: #222222;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap; /* Empêche les retours à la ligne */
+    transition: all 0.25s ease-in-out;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
-.btn-gold {
-    background-color: var(--accent-gold);
-    color: #ffffff;
-    padding: 12px 28px;
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 2px;
-    border: 1px solid var(--accent-gold);
+/* Survol (Hover) ET Page Active : Fond Rouge + Texte Blanc */
+#main-nav a:hover,
+#main-nav a.active {
+    background-color: #8b0000 !important; /* Rouge Prestige */
+    color: #ffffff !important;           /* Écriture blanche */
+    box-shadow: 0 3px 10px rgba(139, 0, 0, 0.3);
 }
 
-.btn-gold:hover {
-    background-color: var(--hover-btn-bg);
-    color: var(--hover-btn-text);
-    border-color: var(--hover-btn-border);
-    transform: translateY(-2px);
-}
-
-.btn-outline {
+/* Style spécifique du bouton WhatsApp */
+#main-nav a.nav-wa {
     background-color: transparent;
-    color: var(--text-color);
-    padding: 12px 28px;
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 2px;
-    border: 1px solid var(--accent-gold);
+    color: #25d366;
+    border: 1.5px solid #25d366;
 }
 
-.btn-outline:hover {
-    background-color: var(--hover-btn-bg);
-    color: var(--hover-btn-text);
-    border-color: var(--hover-btn-border);
-    transform: translateY(-2px);
+#main-nav a.nav-wa:hover {
+    background-color: #25d366 !important;
+    color: #ffffff !important;
+    border-color: #25d366;
+    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
 }
 
-/* IMAGE DU LADOUM MAXIMISÉE */
-.hero-image-wrapper {
-    flex: 1.6;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.hero-ladoum-img {
-    width: 100%;
-    max-width: 1100px;
-    max-height: 200vh;
-    object-fit: contain;
-    border-radius: 4px;
-    transition: transform 0.4s ease;
-}
-
-.hero-image-wrapper:hover .hero-ladoum-img {
-    transform: scale(1.02);
-}
-
-/* Grille des Produits */
-.products {
-    padding: 80px 8%;
-}
-
-.products-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.products-header h2 {
-    font-size: 2.5rem;
-    color: var(--text-color);
-}
-
-.products-header p {
-    color: var(--section-sublabel);
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.grid-products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.product-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    padding: 30px 25px;
-    border-radius: 4px;
-    position: relative;
-}
-
-.badge {
-    color: var(--accent-gold);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-
-.product-card h3 {
-    font-size: 1.6rem;
-    color: var(--text-color);
-    margin-bottom: 8px;
-}
-
-.product-card p {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    margin-bottom: 20px;
-}
-
-.price {
-    display: block;
-    color: var(--accent-gold);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.btn-card {
-    display: block;
-    text-align: center;
-    background-color: var(--accent-gold);
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 2px;
-    border: 1px solid var(--accent-gold);
-}
-
-/* Effets Hover sur les cartes */
-.product-card:hover {
-    background-color: var(--hover-card-bg);
-    border-color: var(--hover-card-border);
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px var(--card-shadow);
-}
-
-.product-card:hover h3,
-.product-card:hover p,
-.product-card:hover .badge {
-    color: var(--hover-card-text);
-}
-
-.product-card:hover .price {
-    color: var(--hover-card-border);
-}
-
-.product-card:hover .btn-card {
-    background-color: var(--hover-btn-bg);
-    color: var(--hover-btn-text);
-    border-color: var(--hover-btn-border);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: var(--footer-bg);
-    border-top: 1px solid var(--header-border);
-    color: var(--text-muted);
-    font-size: 0.8rem;
-}
-
-/* ==========================================
-   OPTIMISATION RESPONSIVE MOBILE
-   ========================================== */
-@media (max-width: 900px) {
-    header {
-        height: auto;
-        min-height: 80px;
-        padding: 10px 4%;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .logo-img {
-        height: 120px; /* Taille adaptée pour écran mobile */
-    }
-
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    nav a {
-        margin-left: 8px;
-        margin-right: 8px;
-        font-size: 0.75rem;
-    }
-
-    .theme-switcher {
-        margin-left: 0;
-        padding-left: 0;
-        border-left: none;
-        margin-top: 5px;
-    }
-
-    .hero {
-        flex-direction: column-reverse;
-        height: auto;
-        min-height: auto;
-        padding: 30px 5%;
-        gap: 25px;
-    }
-
-    .hero-content {
-        text-align: center;
-        width: 100%;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .tagline {
-        font-size: 1.5rem;
-    }
-
-    .description {
-        font-size: 0.85rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .cta-group {
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .btn-gold, .btn-outline {
-        width: 100%;
-        padding: 12px 15px;
-        text-align: center;
-    }
-
-    .hero-image-wrapper {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .hero-ladoum-img {
-        max-width: 100%;
-        max-height: 45vh;
-    }
-
-    .products {
-        padding: 40px 5%;
-    }
-
-    .products-header h2 {
-        font-size: 1.8rem;
-    }
-
-    .grid-products {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-}
-
-/* Bouton Panier dans le Header */
-.cart-trigger {
-    background: transparent;
-    border: 1px solid var(--accent-gold);
-    color: var(--text-color);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 15px;
-    transition: all 0.3s ease;
-}
-
-.cart-trigger:hover {
-    background-color: var(--accent-gold);
-    color: #ffffff;
-}
-
-.cart-badge {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: var(--accent-rouge);
-    color: #ffffff;
-    font-size: 0.65rem;
-    font-weight: 700;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Tiroir de Panier (Drawer) */
-.cart-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-    z-index: 200;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.cart-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.cart-drawer {
-    position: fixed;
-    top: 0;
-    right: -400px;
-    width: 380px;
-    max-width: 90vw;
-    height: 100vh;
-    background-color: var(--bg-color);
-    border-left: 1px solid var(--header-border);
-    z-index: 201;
-    display: flex;
-    flex-direction: column;
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
-}
-
-.cart-drawer.open {
-    right: 0;
-}
-
-.cart-drawer-header {
-    padding: 20px;
-    border-bottom: 1px solid var(--header-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cart-drawer-header h3 {
-    font-size: 1.2rem;
-    color: var(--text-color);
-}
-
-.close-drawer {
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    color: var(--text-color);
-    cursor: pointer;
-}
-
-.cart-drawer-body {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-}
-
-.empty-cart-msg {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-top: 50px;
-}
-
-/* Éléments du Panier & Choix des Kilos */
-.cart-item {
-    display: flex;
-    flex-direction: column;
-    padding: 15px 0;
-    border-bottom: 1px solid var(--card-border);
-    gap: 8px;
-}
-
-.cart-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cart-item-title {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--text-color);
-}
-
-.cart-item-remove {
-    background: none;
-    border: none;
-    color: var(--accent-rouge);
-    cursor: pointer;
-    font-size: 0.85rem;
-}
-
-.cart-item-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 5px;
-}
-
-.kilo-picker {
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--accent-gold);
-    border-radius: 2px;
-}
-
-.kilo-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-color);
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.kilo-value {
-    padding: 0 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.cart-item-subtotal {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--accent-gold);
-}
-
-/* Pied du Panier & WhatsApp */
-.cart-drawer-footer {
-    padding: 20px;
-    border-top: 1px solid var(--header-border);
-    background-color: var(--card-bg);
-}
-
-.cart-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-.cart-summary strong {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    color: var(--accent-gold);
-}
-
-.btn-whatsapp-order {
-    width: 100%;
-    background-color: #25D366;
-    color: #ffffff;
-    border: none;
-    padding: 14px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-radius: 2px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-whatsapp-order:hover {
-    background-color: #1eb854;
-}
-
-/* Section À Propos */
-.about-section {
-    padding: 80px 10%;
-    background-color: var(--card-bg);
-    border-top: 1px solid var(--header-border);
-    border-bottom: 1px solid var(--header-border);
-}
-
-.about-container {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    justify-content: space-between;
-}
-
-.about-text {
-    flex: 1.2;
-}
-
-.about-text h2 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: var(--text-color);
-}
-
-.about-description {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-    margin-bottom: 15px;
-}
-
-.about-stats {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid var(--card-border);
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent-gold);
-}
-
-.stat-label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-badge-card {
-    flex: 0.8;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(139, 0, 0, 0.05) 100%);
-    border: 1px solid var(--accent-gold);
-    padding: 40px;
-    border-radius: 4px;
-    text-align: center;
-}
-
-.gold-icon {
-    font-size: 2.5rem;
-    color: var(--accent-gold);
-    margin-bottom: 15px;
-}
-
-.badge-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-.badge-content p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-}
-
-/* Responsive Tablette/Mobile */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .about-stats {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-}
-
-/* BLOC POURQUOI CHOISIR LE LADOUM */
-.why-ladoum-section {
-    padding: 70px 8%;
-    background-color: var(--card-bg);
-    border-top: 1px solid var(--header-border);
-    border-bottom: 1px solid var(--header-border);
-    text-align: center;
-}
-
-.why-header h2 {
-    font-size: 2.2rem;
-    color: var(--text-color);
-    margin-bottom: 12px;
-}
-
-.why-intro {
-    max-width: 750px;
-    margin: 0 auto 40px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.7;
-}
-
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.why-card {
-    padding: 30px 20px;
-    border: 1px solid var(--card-border);
-    border-radius: 4px;
-    background-color: var(--bg-color);
-    transition: transform 0.3s ease;
-}
-
-.why-card:hover {
-    transform: translateY(-5px);
-}
-
-.why-icon {
-    font-size: 2rem;
-    color: var(--accent-gold);
-    margin-bottom: 15px;
-}
-
-.why-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-.why-card p {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-}
-
-/* STRUCTURATION PAR CATÉGORIES ET CARTES PHOTO */
-.products-subintro {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-top: 8px;
-}
-
-.category-block {
-    margin-top: 50px;
-}
-
-.category-title {
-    font-size: 1.6rem;
-    color: var(--text-color);
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid var(--header-border);
-    padding-bottom: 10px;
-}
-
-.gold-icon-sm {
-    color: var(--accent-gold);
-    font-size: 1.2rem;
-}
-
-/* CARTE PRODUIT AVEC PHOTO SUPÉRIEURE */
-.product-card {
-    display: flex;
-    flex-direction: column;
-    padding: 0 !important;
-    overflow: hidden;
-}
-
-.product-img-wrapper {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background-color: #fafafa;
-    border-bottom: 1px solid var(--card-border);
-}
-
-.product-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.product-card:hover .product-img {
-    transform: scale(1.05);
-}
-
-.product-card-body {
-    padding: 25px 20px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.product-card-body h3 {
-    font-size: 1.35rem;
-    margin-bottom: 8px;
-}
-
-.product-card-body p {
-    flex: 1;
-}
-
-/* Titre de Catégorie avec Ligne de Séparation Prestige */
-.category-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.category-header h3 {
-    font-size: 1.5rem;
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--text-color);
-    white-space: nowrap;
+/* Éléments supplémentaires dans la nav (Thème + Panier) alignés avec la même distance */
+.theme-switcher,
+.desktop-cart {
     margin: 0;
-}
-
-.category-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, var(--accent-gold) 0%, rgba(182, 146, 98, 0.1) 100%);
-}
-
-/* Alignement Prix & Bouton dans la Carte */
-.product-footer-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 15px;
-    padding-top: 12px;
-    border-top: 1px solid var(--card-border);
-}
-
-.product-footer-row .price {
-    margin-bottom: 0 !important;
-}
-
-.product-footer-row .btn-card {
-    padding: 8px 18px;
-    width: auto !important;
-}
-
-/* ==========================================================================
-   MODULES COMPLÉMENTAIRES V2 (Service, Parcours & Cartes)
-   ========================================================================== */
-
-/* Section Service & Livraison */
-.service-section {
-    padding: 80px 8%;
-    background-color: var(--card-bg);
-    border-top: 1px solid var(--header-border);
-    border-bottom: 1px solid var(--header-border);
-    text-align: center;
-}
-
-.service-header h2 {
-    font-size: 2.2rem;
-    color: var(--text-color);
-    margin-bottom: 12px;
-}
-
-.service-intro {
-    max-width: 750px;
-    margin: 0 auto 40px;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.7;
-}
-
-.service-steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-}
-
-.service-step-card {
-    padding: 30px 20px;
-    border: 1px solid var(--card-border);
-    border-radius: 4px;
-    background-color: var(--bg-color);
-    text-align: left;
-    position: relative;
-    transition: transform 0.3s ease;
-}
-
-.service-step-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-gold);
-}
-
-.step-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--accent-gold);
-    display: block;
-    margin-bottom: 10px;
-}
-
-.service-step-card h3 {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    margin-bottom: 10px;
-}
-
-.service-step-card p {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-}
-
-/* Grille à 4 colonnes pour le bloc Pourquoi Choisir */
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 25px;
-}
-
-/* ==========================================================================
-   CARROUSEL MOBILE & OPTIMISATION UX PRODUITS
-   ========================================================================== */
-
-/* Carrousel défilable horizontalement sur écran mobile */
-@media (max-width: 768px) {
-    .products-header {
-        margin-bottom: 25px;
-    }
-
-    .category-block {
-        margin-top: 35px;
-    }
-
-    /* Transformation de la grille en carrousel tactile */
-    .grid-products {
-        display: flex !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory;
-        gap: 15px !important;
-        padding-bottom: 15px;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Masquer la barre de défilement tout en gardant le scroll */
-    .grid-products::-webkit-scrollbar {
-        display: none;
-    }
-    .grid-products {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-
-    /* Dimensionnement des cartes dans le carrousel */
-    .grid-products .product-card {
-        flex: 0 0 82% !important; /* Laisse deviner la carte suivante */
-        scroll-snap-align: center;
-        min-width: 260px;
-    }
-
-    .product-img-wrapper {
-        height: 160px !important;
-    }
-
-    .product-card-body {
-        padding: 15px !important;
-    }
-
-    .product-card-body h3 {
-        font-size: 1.15rem !important;
-    }
-
-    .product-card-body p {
-        font-size: 0.8rem !important;
-        margin-bottom: 12px !important;
-    }
-
-    /* Indication visuelle de défilement */
-    .category-header::after {
-        content: "Glisser ➔";
-        font-size: 0.75rem;
-        color: var(--accent-gold);
-        font-weight: 500;
-        margin-left: auto;
-    }
-}
-
-/* Bouton pour aller sur la page dédiée Viandes */
-.cta-all-products {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px 0;
-}
-
-/* ==========================================================================
-   FOND PERSONNALISÉ POUR LA SECTION VIANDES
-   ========================================================================== */
-
-/* Couleur de fond sur-mesure pour la section viandes */
-#decoupes.products {
-    background-color: var(--section-viandes-bg, #f4efe9); /* Nuance beige/crème raffinée en thème clair */
-    border-top: 1px solid var(--header-border);
-    border-bottom: 1px solid var(--header-border);
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-/* Adaptation pour le Thème Sombre */
-[data-theme="dark"] #decoupes.products {
-    --section-viandes-bg: #181818; /* Gris très sombre distinct */
-}
-
-/* Adaptation pour le Thème Bordeaux Prestige */
-[data-theme="red"] #decoupes.products {
-    --section-viandes-bg: #3a0000; /* Bordeaux profond contrasté */
-}
-
-/* ==========================================================================
-   CENTRALISATION DES ÉLÉMENTS DE LA SECTION VIANDES SUR MOBILE
-   ========================================================================== */
-
-   @media (max-width: 768px) {
-    /* Centrage de l'en-tête de la section viandes */
-    #decoupes.products .products-header {
-        text-align: center;
-    }
-
-    /* Centrage des titres de catégories et masquage de la ligne latérale pour garder la symétrie */
-    #decoupes.products .category-header {
-        justify-content: center;
-        text-align: center;
-    }
-
-    #decoupes.products .category-header h3 {
-        margin: 0 auto;
-    }
-
-    #decoupes.products .category-line {
-        display: none; /* Enlève la ligne pour que le titre reste bien au centre */
-    }
-
-    #decoupes.products .category-header::after {
-        display: none; /* Enlève la mention latérale si le centrage est actif */
-    }
-
-    /* Centrage des cartes dans le carrousel/grille mobile */
-    #decoupes.products .grid-products {
-        justify-content: center;
-    }
-
-    #decoupes.products .product-card {
-        margin: 0 auto; /* Centre la carte produit */
-        text-align: center;
-    }
-
-    #decoupes.products .badge {
-        align-self: center; /* Centre le badge au-dessus du titre */
-    }
-
-    #decoupes.products .product-footer-row {
-        justify-content: center;
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-/* ==========================================================================
-   MENU HAMBURGER MOBILE (LOGO À SA PLACE)
-   ========================================================================== */
-
-   .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.mobile-menu-btn {
-    display: none; /* Caché sur ordinateur */
-    background: transparent;
-    border: 1px solid var(--accent-gold);
-    color: var(--text-color);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-@media (max-width: 900px) {
-    header {
-        height: 75px !important;
-        padding: 10px 5% !important;
-        flex-direction: row !important; /* Maintient le logo à gauche et actions à droite */
-        justify-content: space-between !important;
-        position: sticky;
-        top: 0;
-        z-index: 150;
-    }
-
-    .logo-img {
-        height: 100px !important; /* Taille nette pour mobile sans étouffer l'écran */
-        width: auto !important;
-    }
-
-    .mobile-menu-btn {
-        display: flex !important; /* Visible uniquement sur écran mobile/tablette */
-    }
-
-    /* Le menu nav devient un panneau dépliant élégant */
-    nav#main-nav {
-        position: fixed;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-color);
-        border-bottom: 2px solid var(--accent-gold);
-        flex-direction: column !important;
-        align-items: center !important;
-        padding: 25px 0 !important;
-        gap: 18px !important;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        display: none !important; /* Caché par défaut */
-        z-index: 140;
-    }
-
-    nav#main-nav.active {
-        display: flex !important; /* Affiché au clic sur le burger */
-    }
-
-    nav#main-nav a {
-        margin: 0 !important;
-        font-size: 0.95rem !important;
-    }
-
-    .theme-switcher {
-        margin-left: 0 !important;
-        padding-left: 0 !important;
-        border-left: none !important;
-        margin-top: 10px;
-    }
-}
-
-video/* ==========================================================================
-CORRECTION ALIGNEMENT PANIER ORDINATEUR VS MOBILE
-========================================================================== */
-
-/* Sur ordinateur : masquer les actions mobiles */
-.mobile-only {
- display: none !important;
-}
-
-/* Sur mobile (900px et moins) */
-@media (max-width: 900px) {
- /* Masquer le panier du nav sur mobile */
- .desktop-cart {
-     display: none !important;
- }
-
- /* Afficher le bloc d'actions mobile (Panier + Burger) à droite */
- .mobile-only {
-     display: flex !important;
-     align-items: center;
-     gap: 10px;
- }
-}
-
-/* ==========================================================================
-   GESTION STRICTE DU PANIER UNIQUE (PC VS MOBILE)
-   ========================================================================== */
-
-/* Sur Ordinateur (> 900px) */
-@media (min-width: 901px) {
-    .mobile-only {
-        display: none !important; /* Cache le bloc mobile */
-    }
-    .desktop-cart {
-        display: flex !important; /* Affiche le panier dans la nav */
-    }
-}
-
-/* Sur Mobile (<= 900px) */
-@media (max-width: 900px) {
-    .desktop-cart {
-        display: none !important; /* Cache le panier de la nav */
-    }
-    .mobile-only {
-        display: flex !important; /* Affiche le bloc Panier + Burger à droite */
-        align-items: center;
-        gap: 10px;
-    }
 }
