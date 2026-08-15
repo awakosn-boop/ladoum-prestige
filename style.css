@@ -1389,3 +1389,26 @@
     justify-content: center;
     gap: 8px;
 }
+
+/* ===================================================
+   ANIMATION D'ENTRÉE FLOTTANTE POUR TOUT LE SITE
+=================================================== */
+
+/* État initial : la section est descendue et transparente */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px); /* Décalage vers le bas pour l'effet de flottement */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* État activé : la section remonte à sa position normale et devient visible */
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Décalage progressif si nécessaire */
+.reveal-delay-1 { transition-delay: 0.2s; }
+.reveal-delay-2 { transition-delay: 0.4s; }
+.reveal-delay-3 { transition-delay: 0.6s; }

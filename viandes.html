@@ -510,5 +510,30 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Sélectionne toutes les sections du site qui ont la classe "reveal-on-scroll"
+            const animatedElements = document.querySelectorAll('.reveal-on-scroll');
+        
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px', // Se déclenche un peu avant que la section n'atteigne le bas de l'écran
+                threshold: 0.15 // Déclenche l'effet quand 15% de la section est visible
+            };
+        
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optionnel : si tu veux que l'animation ne se joue qu'une seule fois :
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+        
+            animatedElements.forEach(el => observer.observe(el));
+        });
+        </script>
 </body>
 </html>
