@@ -1289,3 +1289,103 @@
 .desktop-cart {
     margin: 0;
 }
+
+/* SECTION PREUVE & CONFIANCE AVEC ARRIÈRE-PLAN D'ORIGINE */
+.why-ladoum-section {
+    padding: 60px 20px;
+    background-image: url('./img/fond_blanc_BG.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BOÎTE BLANCHE CENTRALE POUR TOUT LE CONTENU */
+.why-container-box {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 40px 25px;
+    max-width: 800px; /* Ne prend pas toute la largeur de l'écran */
+    width: 90%; /* Garde une belle marge sur les côtés sur mobile */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color, rgba(212, 175, 55, 0.25));
+    text-align: center;
+    margin: 0 auto;
+}
+
+.why-header {
+    max-width: 650px;
+    margin: 0 auto 30px auto;
+}
+
+/* CARROUSEL : 1 SEULE CARTE VISIBLE À LA FOIS */
+.why-carousel-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 0; /* Pas d'espace entre les éléments car 1 seul est visible */
+    border-radius: 12px;
+}
+
+/* Masquer la barre de défilement tout en gardant le défilement fonctionnel */
+.why-carousel-slider::-webkit-scrollbar {
+    display: none;
+}
+.why-carousel-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* CHAQIUE ÉLÉMENT PREND 100% DE LA LARGEUR DU CONTENEUR */
+.why-card-item {
+    flex: 0 0 100%;
+    min-width: 100%;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    padding: 10px 5px;
+}
+
+/* STYLE DE LA CARTE */
+.why-card {
+    background: #fafafa;
+    border: 1px solid var(--border-color, rgba(212, 175, 55, 0.2));
+    border-radius: 12px;
+    padding: 35px 25px;
+    height: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.why-icon {
+    font-size: 2rem;
+    color: var(--accent-gold, #d4af37);
+    margin-bottom: 15px;
+}
+
+.why-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    color: #111;
+}
+
+.why-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* INDICATEUR VISUEL (PETITS POINTS / HINT POUR LE SWIPE) */
+.why-carousel-hint {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
