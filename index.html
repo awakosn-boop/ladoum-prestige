@@ -23,11 +23,11 @@
         }
 
         .carousel-container::-webkit-scrollbar-track {
-            background: var(--bg-color);
+            background: var(--bg-color, #ffffff);
         }
 
         .carousel-container::-webkit-scrollbar-thumb {
-            background-color: var(--accent-gold);
+            background-color: var(--accent-gold, #d4af37);
             border-radius: 10px;
         }
 
@@ -72,19 +72,19 @@
 
         .packaging-icon {
             font-size: 2.2rem;
-            color: var(--accent-gold);
+            color: var(--accent-gold, #d4af37);
             margin-bottom: 15px;
         }
 
         .packaging-card h4 {
             font-size: 1.15rem;
             margin-bottom: 10px;
-            color: var(--text-color);
+            color: var(--text-color, #333);
         }
 
         .packaging-card p {
             font-size: 0.9rem;
-            color: var(--text-muted);
+            color: var(--text-muted, #666);
             line-height: 1.6;
         }
     </style>
@@ -133,22 +133,53 @@
     </header>
 
     <!-- Hero Banner -->
-    <section id="accueil" class="hero reveal-on-scroll">
-        <div class="hero-content">
-            <p class="label-prestige">100% Bergerie Familiale</p>
-            <h1>L'Excellence du Ladoum</h1>
-            <p class="tagline">Le luxe se déguste.</p>
-            <p class="description">Une viande d'exception, reconnue pour sa tendreté absolue et sa douceur naturelle. Une sélection rigoureuse issue du savoir-faire de notre élevage familial.</p>
-            <div class="cta-group">
-                <a href="#decoupes" class="btn-gold">Découvrir la carte</a>
-                <a href="https://wa.me/221776518802" target="_blank" rel="noopener" class="btn-outline">Commande rapide</a>
+<!-- Hero Banner -->
+<section id="accueil" class="hero reveal-on-scroll flex-column-centered">
+    <!-- Textes et Boutons en haut -->
+    <div class="hero-content hero-text-centered">
+        <p class="label-prestige">100% Bergerie Familiale</p>
+        <h1>L'Excellence du Ladoum</h1>
+        <p class="tagline">Le luxe se déguste.</p>
+        <p class="description">Une viande d'exception, reconnue pour sa tendreté absolue et sa douceur naturelle. Une sélection rigoureuse issue du savoir-faire de notre élevage familial.</p>
+        <div class="cta-group">
+            <a href="#decoupes" class="btn-gold">Découvrir la carte</a>
+            <a href="https://wa.me/221776518802" target="_blank" rel="noopener" class="btn-outline">Commande rapide</a>
+        </div>
+    </div>
+    
+    <!-- Carrousel Banner & Vagues en bas -->
+    <div class="hero-image-wrapper header-banner-container">
+        <!-- Vague supérieure -->
+        <div class="banner-curve curve-top"></div>
+
+        <!-- Galerie / Carrousel -->
+        <div class="banner-carousel-track">
+            <div class="banner-slide">
+                <img src="./img/1.png" alt="Boucherie Ladoum Prestige">
+            </div>
+            <div class="banner-slide">
+                <img src="./img/propos1.png" alt="Savoir-faire et Élevage">
+            </div>
+            <div class="banner-slide">
+                <img src="./img/1.png" alt="Sélection de viande Ladoum">
+            </div>
+            <div class="banner-slide">
+                <img src="./img/propos1.png" alt="Découpe d'exception">
+            </div>
+
+            <!-- Doublon des images pour l'effet de boucle infinie sur mobile -->
+            <div class="banner-slide mobile-clone">
+                <img src="./img/1.png" alt="Boucherie Ladoum Prestige">
+            </div>
+            <div class="banner-slide mobile-clone">
+                <img src="./img/propos1.png" alt="Savoir-faire et Élevage">
             </div>
         </div>
-        
-        <div class="hero-image-wrapper">
-            <img src="./img/1.png" alt="Boucherie Ladoum Prestige" class="hero-ladoum-img">
-        </div>
-    </section>
+
+        <!-- Vague inférieure -->
+        <div class="banner-curve curve-bottom"></div>
+    </div>
+</section>
 
     <!-- SECTION WHY LADOUM -->
     <section class="why-ladoum-section reveal-on-scroll">
@@ -226,7 +257,7 @@
                             <p>Mouton entier sélectionné dans notre bergerie, préparé et découpé sur-mesure au poids.</p>
                             <div class="product-footer-row">
                                 <span class="price">Sur devis <small>/ au poids</small></span>
-                                <button onclick="addToCart('L&#39;Impérial Ladoum (Entier)', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                                <button onclick="addToCart('L\'Impérial Ladoum (Entier)', 0, 'unit')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
                     </div>
@@ -287,7 +318,7 @@
                             <p>Le joyau du Ladoum. Une côte persillée offrant une tendreté d'exception.</p>
                             <div class="product-footer-row">
                                 <span class="price">Sur devis <small>/ kg</small></span>
-                                <button onclick="addToCart('La Côte d&#39;Or', 0, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                                <button onclick="addToCart('La Côte d\'Or', 0, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
                     </div>
@@ -338,7 +369,7 @@
                             <p>Généreuse et fondante, idéale à rôtir longuement ou confire au four.</p>
                             <div class="product-footer-row">
                                 <span class="price">8 000 FCFA <small>/ kg</small></span>
-                                <button onclick="addToCart('L&#39;Épaule de Ladoum', 8000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
+                                <button onclick="addToCart('L\'Épaule de Ladoum', 8000, 'kg')" class="btn-card"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
                     </div>
@@ -472,7 +503,7 @@
         </div>
 
         <!-- CARROUSEL 4: LES FORMULES & BOX LADOUM -->
-        <div class="category-block" style="margin-top: 40px; padding-top: 30px; border-top: 1px dashed var(--accent-gold);">
+        <div class="category-block" style="margin-top: 40px; padding-top: 30px; border-top: 1px dashed var(--accent-gold, #d4af37);">
             <div class="category-header">
                 <h3><i class="fas fa-box-open gold-icon-sm"></i> Les Formules & Box Ladoum</h3>
                 <span class="category-line"></span>
@@ -571,7 +602,7 @@
         <div style="text-align: center; max-width: 700px; margin: 0 auto;">
             <p class="label-prestige">Standards de Haute Boucherie</p>
             <h2 style="font-size: 2.2rem; margin-bottom: 15px;">Un Packaging d'Exception</h2>
-            <p style="color: var(--text-muted); line-height: 1.7;">
+            <p style="color: var(--text-muted, #666); line-height: 1.7;">
                 Parce que le luxe se niche dans les détails, nous apportons un soin extrême à la conservation et au conditionnement de vos pièces de viande.
             </p>
         </div>
@@ -580,7 +611,7 @@
             <div class="packaging-card">
                 <div class="packaging-icon"><i class="fas fa-box"></i></div>
                 <h4>Filmage Alimentaire Pro</h4>
-                <p>Mise sous film protecteur haute densité (type Auchan / Grande distribution) pour préserver la fraîcheur et les sucs.</p>
+                <p>Mise sous film protecteur haute densité pour préserver la fraîcheur et les sucs.</p>
             </div>
 
             <div class="packaging-card">
@@ -635,25 +666,23 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Sélectionne toutes les sections du site qui ont la classe "reveal-on-scroll"
             const animatedElements = document.querySelectorAll('.reveal-on-scroll');
-        
+            
             const observerOptions = {
                 root: null,
-                rootMargin: '0px 0px -50px 0px', // Se déclenche un peu avant que la section n'atteigne le bas de l'écran
-                threshold: 0.15 // Déclenche l'effet quand 15% de la section est visible
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.15
             };
-        
+            
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        // L'animation ne se joue qu'une seule fois :
                         observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
-        
+            
             animatedElements.forEach(el => observer.observe(el));
         });
     </script>
